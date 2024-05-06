@@ -1,18 +1,15 @@
 import MapContent from "./pages/Home";
-import Footer from "./components/footer/Footer";
-import Header from "./components/header/Header";
 import ApplicationProviders from "./components/ApplicationProviders";
+import BaseTemplate from "./templates/BaseTemplate";
 
 function App() {
   return (
     <ApplicationProviders>
-      <div className="min-h-screen flex flex-col bg-beige-light">
-        <Header />
+      <BaseTemplate>
         <main className="flex-grow">
           <MapContent />
         </main>
-        <Footer />
-      </div>
+      </BaseTemplate>
     </ApplicationProviders>
   );
 }

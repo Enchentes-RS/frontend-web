@@ -3,7 +3,7 @@ import { GeoJSON, Marker } from "leaflet";
 import { useRef, useState } from "react";
 import { Map } from "leaflet";
 import CircularProgress from "@mui/material/CircularProgress";
-import { GeoJSON as GeoJSONClass } from "../classes/GeoJSON";
+import { GeoJSON as GeoJSONObject } from "../classes/GeoJSON";
 import useGeoLocation from "../hooks/useGeolocation";
 import { useQuery } from "@tanstack/react-query";
 import { FormattedCSVDataProperties, getCSVData } from "../services/getCSVData";
@@ -41,11 +41,11 @@ function MapContent() {
   const renderGeoJSONData = () => {
     if (!coordinatesWithData) return;
 
-    const data = new GeoJSONClass({
+    const data = new GeoJSONObject({
       coordinatesWithData,
     });
 
-    var layer = new GeoJSON(data, {
+    const layer = new GeoJSON(data, {
       style: {},
       pointToLayer: (_feature, latlng) => {
         return new Marker(latlng);
@@ -67,7 +67,7 @@ function MapContent() {
         <MapContainer
           center={userCoords}
           zoom={13}
-          scrollWheelZoom={false}
+          scrollWheelZoom
           ref={(ref) => {
             ref?.whenReady(() => {
               setLoadingMap(false);
