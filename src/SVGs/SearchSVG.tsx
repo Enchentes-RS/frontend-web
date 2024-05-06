@@ -1,7 +1,5 @@
 import * as React from "react";
-const SearchSVG = (
-  props: React.JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>
-) => (
+export const SearchSVG = (props: React.ComponentPropsWithoutRef<"svg">) => (
   <svg
     width="24"
     height="24"
@@ -18,4 +16,3 @@ const SearchSVG = (
     />
   </svg>
 );
-export default SearchSVG;

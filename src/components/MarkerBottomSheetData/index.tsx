@@ -4,9 +4,9 @@ type MarkerBottomSheetDataProps = {
   markerToDisplay: FormattedCSVDataProperties;
 };
 
-const MarkerBottomSheetData: React.FC<MarkerBottomSheetDataProps> = ({
+export const MarkerBottomSheetData = ({
   markerToDisplay,
-}): JSX.Element => {
+}: MarkerBottomSheetDataProps) => {
   return (
     <div className="py-16 px-4 bg-white shadow rounded">
       <h2 className="text-[1rem] font-bold">Local: {markerToDisplay.LOCAL}</h2>
@@ -34,5 +34,3 @@ const MarkerBottomSheetData: React.FC<MarkerBottomSheetDataProps> = ({
     </div>
   );
 };
-
-export default MarkerBottomSheetData;

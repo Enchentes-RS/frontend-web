@@ -4,10 +4,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   endAdornment?: JSX.Element;
 }
 
-const Input: React.FC<InputProps> = ({
-  EndAdornment,
-  ...rest
-}): JSX.Element => {
+export const Input = ({ endAdornment, ...rest }: InputProps) => {
   return (
     <fieldset className="relative w-full">
       <input
@@ -20,9 +17,7 @@ const Input: React.FC<InputProps> = ({
                 focus:border-[2px] focus:border-blue         
             "
       />
-      {EndAdornment}
+      {endAdornment}
     </fieldset>
   );
 };
-
-export default Input;

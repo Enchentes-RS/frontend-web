@@ -1,17 +1,17 @@
 import { useState } from "react";
 import type { FormattedCSVData } from "../../services/getCSVData";
-import Input from "../Input";
-import SearchSVG from "../../SVGs/SearchSVG";
+import { Input } from "../Input";
+import { SearchSVG } from "../../SVGs/SearchSVG";
 
 type MapSearchProps = {
   coordinatesWithData: FormattedCSVData[] | undefined;
   flyToCoordinate: (coordinates: [number, number]) => void;
 };
 
-const MapSearch: React.FC<MapSearchProps> = ({
+export const MapSearch = ({
   coordinatesWithData = [],
   flyToCoordinate,
-}): JSX.Element => {
+}: MapSearchProps) => {
   const [inputValue, setInputValue] = useState("");
   const [filteredData, setFilteredData] =
     useState<FormattedCSVData[]>(coordinatesWithData);
@@ -44,12 +44,10 @@ const MapSearch: React.FC<MapSearchProps> = ({
         placeholder="Procurar locais"
         value={inputValue}
         onChange={handleSetFilteredData}
-        EndAdornment={
+        endAdornment={
           <SearchSVG className="absolute right-[1rem] top-[50%] translate-y-[-50%] scale-75" />
         }
       />
     </div>
   );
 };
-
-export default MapSearch;

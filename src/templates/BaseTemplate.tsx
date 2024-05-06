@@ -5,7 +5,7 @@ type BaseTemplateProps = {
   children: React.ReactNode;
 };
 
-const BaseTemplate: React.FC<BaseTemplateProps> = ({
+export const BaseTemplate: React.FC<BaseTemplateProps> = ({
   children,
 }): JSX.Element => {
   return (
@@ -16,5 +16,3 @@ const BaseTemplate: React.FC<BaseTemplateProps> = ({
     </div>
   );
 };
-
-export default BaseTemplate;

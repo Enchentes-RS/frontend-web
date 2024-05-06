@@ -7,11 +7,11 @@ import { GeoJSON as GeoJSONObject } from "../classes/GeoJSON";
 import useGeoLocation from "../hooks/useGeolocation";
 import { useQuery } from "@tanstack/react-query";
 import { FormattedCSVDataProperties, getCSVData } from "../services/getCSVData";
-import BottomSheet from "../components/BottomSheet";
-import MarkerBottomSheetData from "../components/MarkerBottomSheetData";
-import MapSearch from "../components/MapSearch";
+import { BottomSheet } from "../components/BottomSheet";
+import { MarkerBottomSheetData } from "../components/MarkerBottomSheetData";
+import { MapSearch } from "../components/MapSearch";
 
-function MapContent() {
+export const MapContent = () => {
   const [loadingMap, setLoadingMap] = useState(true);
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
   const [markerToDisplay, setMarkerToDisplay] =
@@ -117,6 +117,4 @@ function MapContent() {
       </BottomSheet>
     </>
   );
-}
-
-export default MapContent;
+};

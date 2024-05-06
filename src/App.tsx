@@ -1,6 +1,6 @@
-import MapContent from "./pages/Home";
-import ApplicationProviders from "./components/ApplicationProviders";
-import BaseTemplate from "./templates/BaseTemplate";
+import { MapContent } from "./pages/Home";
+import { ApplicationProviders } from "./components/ApplicationProviders";
+import { BaseTemplate } from "./templates/BaseTemplate";
 
 function App() {
   return (
