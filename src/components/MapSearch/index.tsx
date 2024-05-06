@@ -48,6 +48,26 @@ export const MapSearch = ({
           <Search className="absolute right-[1rem] top-[50%] translate-y-[-50%] scale-75" />
         }
       />
+      {filteredData.length > 0 &&
+        <ul className="absolute top-[4.5rem] w-full bg-white rounded-lg shadow-lg">
+          {filteredData.map((data, index) => {
+            const { LOCAL, ENDERECO } = data.properties;
+
+            return (
+              <li
+                key={index}
+                className="p-2 cursor-pointer hover:bg-gray-100"
+                onClick={() => flyToCoordinate([data.coordinates[0], data.coordinates[1]])}
+              >
+                <p className="text-gray-800 font-poppins text-sm">{LOCAL}</p>
+                <p className="text-gray-600 font-poppins text-xs">{ENDERECO}</p>
+              </li>
+            );
+          })}
+        </ul>
+
+      }
+
     </div>
   );
 };

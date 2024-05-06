@@ -11,13 +11,14 @@ export const Input = ({ endAdornment, ...rest }: InputProps) => {
         {...rest}
         type="text"
         className="
-                h-[4.5rem] w-full  rounded-full  border-[1px] border-gray-border  px-32
+                h-[48px] w-full  rounded-full  border-[1px] border-gray-border  px-32
                 transition-colors duration-300 placeholder:font-poppins
-                placeholder:text-[1.6rem] hover:border-blue
-                focus:border-[2px] focus:border-blue         
+                placeholder:text-[16px] text-gray-700 placeholder-gray-800 hover:border-blue
+                focus:border-[2px] focus:border-blue outline-none       
             "
       />
       {endAdornment}
     </fieldset>
+
   );
 };
