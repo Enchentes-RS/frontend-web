@@ -3,14 +3,15 @@ import { GeoJSON, Marker } from "leaflet";
 import { useRef, useState } from "react";
 import { Map } from "leaflet";
 import CircularProgress from "@mui/material/CircularProgress";
-import { GeoJSON as GeoJSONClass } from "../classes/GeoJSON";
-import useGeoLocation from "../hooks/useGeolocation";
+import { GeoJSON as GeoJSONObject } from "../classes/GeoJSON";
+import { useGeoLocation } from "../hooks/useGeolocation";
 import { useQuery } from "@tanstack/react-query";
 import { FormattedCSVDataProperties, getCSVData } from "../services/getCSVData";
-import BottomSheet from "../components/BottomSheet";
-import MarkerBottomSheetData from "../components/MarkerBottomSheetData";
+import { BottomSheet } from "../components/BottomSheet";
+import { MarkerBottomSheetData } from "../components/MarkerBottomSheetData";
+import { MapSearch } from "../components/MapSearch";
 
-function MapContent() {
+export const MapContent = () => {
   const [loadingMap, setLoadingMap] = useState(true);
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
   const [markerToDisplay, setMarkerToDisplay] =
@@ -41,11 +42,11 @@ function MapContent() {
   const renderGeoJSONData = () => {
     if (!coordinatesWithData) return;
 
-    const data = new GeoJSONClass({
+    const data = new GeoJSONObject({
       coordinatesWithData,
     });
 
-    var layer = new GeoJSON(data, {
+    const layer = new GeoJSON(data, {
       style: {},
       pointToLayer: (_feature, latlng) => {
         return new Marker(latlng);
@@ -63,18 +64,24 @@ function MapContent() {
 
   return (
     <>
-      <div className="mx-auto max-w-4xl p-4 border-2 border-gray-200 shadow-lg rounded">
+      <div className="relative mx-auto max-w-4xl p-4 border-2 border-gray-200 shadow-lg rounded">
+        <MapSearch
+          coordinatesWithData={coordinatesWithData}
+          flyToCoordinate={flyToCoordinate}
+        />
+
         <MapContainer
           center={userCoords}
           zoom={13}
-          scrollWheelZoom={false}
+          scrollWheelZoom
           ref={(ref) => {
             ref?.whenReady(() => {
               setLoadingMap(false);
             });
+            ref?.zoomControl.setPosition("bottomright");
             mapRef.current = ref;
           }}
-          className="h-[600px] w-full"
+          className="h-[600px] w-full z-[0]"
         >
           {loadingMap || isLoadingCSVData ? (
             <div
@@ -93,7 +100,6 @@ function MapContent() {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
-
               {renderGeoJSONData()}
             </>
           )}
@@ -111,6 +117,4 @@ function MapContent() {
       </BottomSheet>
     </>
   );
-}
-
-export default MapContent;
+};

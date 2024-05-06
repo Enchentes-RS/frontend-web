@@ -1,6 +1,6 @@
 import { MdOutlineSos } from "react-icons/md";
 
-const Header = () => {
+export const Header = () => {
   return (
     <header className="bg-gray-800 text-white shadow-lg">
       <div className="container mx-auto max-w-7xl px-4 ">
@@ -45,5 +45,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;

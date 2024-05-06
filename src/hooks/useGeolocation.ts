@@ -15,7 +15,7 @@ interface IUseGeoLocation {
  * @param {(coordinates: Coordinates) => void} options.callback - Uma função de callback que será chamada quando as coordenadas mudarem.
  * @return {{ loading: boolean, error: GeolocationPositionError | undefined, coords: Coordinates }} - Um objeto contendo o estado de carregamento, o erro e as coordenadas.
  */
-const useGeoLocation = ({
+export const useGeoLocation = ({
   localStorageKey = "is-location-granted",
   callback,
 }: IUseGeoLocation) => {
@@ -102,5 +102,3 @@ const useGeoLocation = ({
 
   return { loading, error, coords };
 };
-
-export default useGeoLocation;

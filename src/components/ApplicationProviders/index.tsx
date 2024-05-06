@@ -5,12 +5,10 @@ type ApplicationProvidersProps = {
   children: React.ReactNode;
 };
 
-const ApplicationProviders: React.FC<ApplicationProvidersProps> = ({
+export const ApplicationProviders = ({
   children,
-}): JSX.Element => {
+}: ApplicationProvidersProps) => {
   return (
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   );
 };
-
-export default ApplicationProviders;

@@ -7,12 +7,12 @@ type BottomSheetProps = {
   children: React.ReactNode;
 };
 
-const BottomSheet: React.FC<BottomSheetProps> = ({
+export const BottomSheet = ({
   isBottomSheetOpen,
   setIsBottomSheetOpen,
   closeBottomSheetCallback,
   children,
-}): JSX.Element => {
+}: BottomSheetProps) => {
   const handleCloseBottomSheet = () => {
     setIsBottomSheetOpen(false);
     closeBottomSheetCallback && closeBottomSheetCallback();
@@ -28,5 +28,3 @@ const BottomSheet: React.FC<BottomSheetProps> = ({
     </Drawer>
   );
 };
-
-export default BottomSheet;
