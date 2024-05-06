@@ -4,7 +4,7 @@ export type CoordinatesWithDataType = {
   DOACOES: string | null;
   ENDERECO: string;
   "GRUPO WHATS": string | null;
-  LOCAL: string | null;
+  LOCAL: string;
   Latitude: number;
   Longitude: number;
   OBS: string | null;

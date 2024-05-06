@@ -9,6 +9,7 @@ import { useQuery } from "@tanstack/react-query";
 import { FormattedCSVDataProperties, getCSVData } from "../services/getCSVData";
 import BottomSheet from "../components/BottomSheet";
 import MarkerBottomSheetData from "../components/MarkerBottomSheetData";
+import MapSearch from "../components/MapSearch";
 
 function MapContent() {
   const [loadingMap, setLoadingMap] = useState(true);
@@ -63,7 +64,9 @@ function MapContent() {
 
   return (
     <>
-      <div className="mx-auto max-w-4xl p-4 border-2 border-gray-200 shadow-lg rounded">
+      <div className="relative mx-auto max-w-4xl p-4 border-2 border-gray-200 shadow-lg rounded">
+        <MapSearch coordinatesWithData={coordinatesWithData} />
+
         <MapContainer
           center={userCoords}
           zoom={13}
@@ -72,9 +75,10 @@ function MapContent() {
             ref?.whenReady(() => {
               setLoadingMap(false);
             });
+            ref?.zoomControl.setPosition("bottomright");
             mapRef.current = ref;
           }}
-          className="h-[600px] w-full"
+          className="h-[600px] w-full z-[0]"
         >
           {loadingMap || isLoadingCSVData ? (
             <div
@@ -93,7 +97,6 @@ function MapContent() {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
-
               {renderGeoJSONData()}
             </>
           )}
