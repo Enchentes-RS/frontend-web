@@ -1,9 +1,9 @@
-import csvData from "../../centros_voluntarios_rs.json";
+import csvData from '../../centros_voluntarios_rs.json';
 
 export type CoordinatesWithDataType = {
   DOACOES: string | null;
   ENDERECO: string;
-  "GRUPO WHATS": string | null;
+  'GRUPO WHATS': string | null;
   LOCAL: string;
   Latitude: number;
   Longitude: number;
@@ -13,7 +13,7 @@ export type CoordinatesWithDataType = {
 
 export type FormattedCSVDataProperties = Omit<
   CoordinatesWithDataType,
-  "Latitude" | "Longitude"
+  'Latitude' | 'Longitude'
 >;
 export type FormattedCSVData = {
   coordinates: number[];
@@ -31,7 +31,7 @@ export const getCSVData = async (): Promise<FormattedCSVData[]> => {
       properties: {
         DOACOES: data.DOACOES,
         ENDERECO: data.ENDEREÇO,
-        "GRUPO WHATS": data["GRUPO WHATS"],
+        'GRUPO WHATS': data['GRUPO WHATS'],
         LOCAL: data.LOCAL,
         OBS: data.OBS,
         VOLUNTARIOS: data.VOLUNTARIOS,

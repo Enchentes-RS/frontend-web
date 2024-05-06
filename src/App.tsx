@@ -1,8 +1,8 @@
-import { MapContent } from "./pages/Home";
-import { ApplicationProviders } from "./components/ApplicationProviders";
-import { BaseTemplate } from "./templates/BaseTemplate";
+import { ApplicationProviders } from '@/components/ApplicationProviders';
+import { MapContent } from '@/pages/Home';
+import { BaseTemplate } from '@/templates/BaseTemplate';
 
-function App() {
+export function App() {
   return (
     <ApplicationProviders>
       <BaseTemplate>
@@ -13,5 +13,3 @@ function App() {
     </ApplicationProviders>
   );
 }
-
-export default App;

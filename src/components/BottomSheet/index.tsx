@@ -1,4 +1,4 @@
-import Drawer from "@mui/material/Drawer";
+import Drawer from '@mui/material/Drawer';
 
 type BottomSheetProps = {
   isBottomSheetOpen: boolean;

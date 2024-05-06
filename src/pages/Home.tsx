@@ -1,15 +1,17 @@
-import { MapContainer, TileLayer } from "react-leaflet";
-import { GeoJSON, Marker } from "leaflet";
-import { useRef, useState } from "react";
-import { Map } from "leaflet";
-import CircularProgress from "@mui/material/CircularProgress";
-import { GeoJSON as GeoJSONObject } from "../classes/GeoJSON";
-import { useGeoLocation } from "../hooks/useGeolocation";
-import { useQuery } from "@tanstack/react-query";
-import { FormattedCSVDataProperties, getCSVData } from "../services/getCSVData";
-import { BottomSheet } from "../components/BottomSheet";
-import { MarkerBottomSheetData } from "../components/MarkerBottomSheetData";
-import { MapSearch } from "../components/MapSearch";
+import CircularProgress from '@mui/material/CircularProgress';
+import { useQuery } from '@tanstack/react-query';
+import type { Map } from 'leaflet';
+import { GeoJSON, Marker } from 'leaflet';
+import { useRef, useState } from 'react';
+import { MapContainer, TileLayer } from 'react-leaflet';
+
+import { GeoJSON as GeoJSONObject } from '../classes/GeoJSON';
+import { BottomSheet } from '../components/BottomSheet';
+import { MapSearch } from '../components/MapSearch';
+import { MarkerBottomSheetData } from '../components/MarkerBottomSheetData';
+import { useGeoLocation } from '../hooks/useGeolocation';
+import type { FormattedCSVDataProperties } from '../services/getCSVData';
+import { getCSVData } from '../services/getCSVData';
 
 export const MapContent = () => {
   const [loadingMap, setLoadingMap] = useState(true);
@@ -35,7 +37,7 @@ export const MapContent = () => {
   });
 
   const { data: coordinatesWithData, isLoading: isLoadingCSVData } = useQuery({
-    queryKey: ["csv-data"],
+    queryKey: ['csv-data'],
     queryFn: getCSVData,
   });
 
@@ -52,7 +54,7 @@ export const MapContent = () => {
         return new Marker(latlng);
       },
       onEachFeature: (feature, layer) => {
-        layer.on("click", () => {
+        layer.on('click', () => {
           setIsBottomSheetOpen(true);
           setMarkerToDisplay(feature.properties);
         });
@@ -64,7 +66,7 @@ export const MapContent = () => {
 
   return (
     <>
-      <div className="relative mx-auto max-w-4xl p-4 border-2 border-gray-200 shadow-lg rounded">
+      <div className="relative mx-auto max-w-4xl rounded border-2 border-gray-200 p-4 shadow-lg">
         <MapSearch
           coordinatesWithData={coordinatesWithData}
           flyToCoordinate={flyToCoordinate}
@@ -78,18 +80,18 @@ export const MapContent = () => {
             ref?.whenReady(() => {
               setLoadingMap(false);
             });
-            ref?.zoomControl.setPosition("bottomright");
+            ref?.zoomControl.setPosition('bottomright');
             mapRef.current = ref;
           }}
-          className="h-[600px] w-full z-[0]"
+          className="z-[0] h-[600px] w-full"
         >
           {loadingMap || isLoadingCSVData ? (
             <div
               style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                height: "600px",
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '600px',
               }}
             >
               <CircularProgress />
