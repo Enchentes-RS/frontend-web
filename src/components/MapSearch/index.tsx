@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { FormattedCSVData } from "../../services/getCSVData";
 import { Input } from "../Input";
-import { SearchSVG } from "../../SVGs/SearchSVG";
+import { SearchSVG } from "../../icons";
 
 type MapSearchProps = {
   coordinatesWithData: FormattedCSVData[] | undefined;

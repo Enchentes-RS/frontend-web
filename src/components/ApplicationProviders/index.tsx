@@ -7,7 +7,7 @@ type ApplicationProvidersProps = {
 
 export const ApplicationProviders = ({
   children,
-}: ApplicationProvidersProps): JSX.Element => {
+}: ApplicationProvidersProps) => {
   return (
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   );
