@@ -1,7 +1,7 @@
 import { InputHTMLAttributes } from "react";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  EndAdornment?: JSX.Element;
+  endAdornment?: JSX.Element;
 }
 
 const Input: React.FC<InputProps> = ({
