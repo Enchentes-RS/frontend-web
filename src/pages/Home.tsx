@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { Map } from "leaflet";
 import CircularProgress from "@mui/material/CircularProgress";
 import { GeoJSON as GeoJSONObject } from "../classes/GeoJSON";
-import useGeoLocation from "../hooks/useGeolocation";
+import { useGeoLocation } from "../hooks/useGeolocation";
 import { useQuery } from "@tanstack/react-query";
 import { FormattedCSVDataProperties, getCSVData } from "../services/getCSVData";
 import { BottomSheet } from "../components/BottomSheet";

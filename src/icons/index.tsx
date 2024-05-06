@@ -1,3 +1,1 @@
-import { SearchSVG } from "./SearchSVG";
-
-export { SearchSVG };
+export { Search } from "./Search";

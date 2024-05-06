@@ -1,5 +1,5 @@
 import * as React from "react";
-export const SearchSVG = (props: React.ComponentPropsWithoutRef<"svg">) => (
+export const Search = (props: React.ComponentPropsWithoutRef<"svg">) => (
   <svg
     width="24"
     height="24"

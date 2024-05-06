@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { FormattedCSVData } from "../../services/getCSVData";
 import { Input } from "../Input";
-import { SearchSVG } from "../../icons";
+import { Search } from "../../icons";
 
 type MapSearchProps = {
   coordinatesWithData: FormattedCSVData[] | undefined;
@@ -45,7 +45,7 @@ export const MapSearch = ({
         value={inputValue}
         onChange={handleSetFilteredData}
         endAdornment={
-          <SearchSVG className="absolute right-[1rem] top-[50%] translate-y-[-50%] scale-75" />
+          <Search className="absolute right-[1rem] top-[50%] translate-y-[-50%] scale-75" />
         }
       />
     </div>
