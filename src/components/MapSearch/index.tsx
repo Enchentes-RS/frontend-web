@@ -15,14 +15,19 @@ export const MapSearch = ({
   const [inputValue, setInputValue] = useState("");
   const [filteredData, setFilteredData] =
     useState<FormattedCSVData[]>(coordinatesWithData);
+  const [searchActive, setSearchActive] = useState(false);
 
   const handleSetFilteredData = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
 
     setInputValue(value);
+    const isSearchActive = !!value && filteredData.length > 0;
+    setSearchActive(isSearchActive);
 
     if (!value) {
       setFilteredData(coordinatesWithData);
+      setSearchActive(false);
+      setFilteredData([]);
       return;
     }
 
@@ -43,31 +48,33 @@ export const MapSearch = ({
       <Input
         placeholder="Procurar locais"
         value={inputValue}
+        search={searchActive}
         onChange={handleSetFilteredData}
-        endAdornment={
-          <Search className="absolute right-[1rem] top-[50%] translate-y-[-50%] scale-75" />
-        }
+        endAdornment={<Search className="absolute right-3 top-1/2 transform -translate-y-1/2 scale-75" />}
       />
-      {filteredData.length > 0 &&
-        <ul className="absolute top-[4.5rem] w-full bg-white rounded-lg shadow-lg">
+      {filteredData.length > 0 ? (
+        <ul className="absolute w-full bg-white rounded-t-none rounded-b-[28px] border-t-[1px] border-gray-border shadow-lg gap-4 ">
           {filteredData.map((data, index) => {
-            const { LOCAL, ENDERECO } = data.properties;
-
+            const { LOCAL = "", ENDERECO = "" } = data.properties;
+            const isLastItem = index === filteredData.length - 1;
             return (
               <li
                 key={index}
-                className="p-2 cursor-pointer hover:bg-gray-100"
-                onClick={() => flyToCoordinate([data.coordinates[0], data.coordinates[1]])}
+                className={`pt-8 pr-24 pb-8 pl-16 cursor-pointer hover:bg-gray-100 flex flex-col ${isLastItem ? "rounded-b-[28px]" : ""
+                  }`}
+                onClick={() =>
+                  flyToCoordinate([data.coordinates[0], data.coordinates[1]])
+                }
               >
-                <p className="text-gray-800 font-poppins text-sm">{LOCAL}</p>
-                <p className="text-gray-600 font-poppins text-xs">{ENDERECO}</p>
+                <p className="text-gray-800 font-inter font-normal text-sm leading-6">{LOCAL}</p>
+                <p className="text-gray-500 font-poppins text-xs">{ENDERECO}</p>
               </li>
             );
           })}
         </ul>
-
-      }
-
+      ) : (
+        null
+      )}
     </div>
   );
 };
