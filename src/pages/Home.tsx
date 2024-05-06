@@ -65,7 +65,10 @@ function MapContent() {
   return (
     <>
       <div className="relative mx-auto max-w-4xl p-4 border-2 border-gray-200 shadow-lg rounded">
-        <MapSearch coordinatesWithData={coordinatesWithData} />
+        <MapSearch
+          coordinatesWithData={coordinatesWithData}
+          flyToCoordinate={flyToCoordinate}
+        />
 
         <MapContainer
           center={userCoords}

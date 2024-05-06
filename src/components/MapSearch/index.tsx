@@ -5,10 +5,12 @@ import SearchSVG from "../../SVGs/SearchSVG";
 
 type MapSearchProps = {
   coordinatesWithData: FormattedCSVData[] | undefined;
+  flyToCoordinate: (coordinates: [number, number]) => void;
 };
 
 const MapSearch: React.FC<MapSearchProps> = ({
   coordinatesWithData = [],
+  flyToCoordinate,
 }): JSX.Element => {
   const [inputValue, setInputValue] = useState("");
   const [filteredData, setFilteredData] =
