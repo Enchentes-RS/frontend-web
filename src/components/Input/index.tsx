@@ -1,4 +1,5 @@
-import { InputHTMLAttributes } from "react";
+import type { InputHTMLAttributes } from 'react';
+
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   endAdornment?: JSX.Element;
@@ -21,4 +22,4 @@ export const Input = ({ endAdornment, search = false, ...rest }: InputProps) => 
       {endAdornment}
     </fieldset>
   );
-};
+}
