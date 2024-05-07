@@ -12,9 +12,9 @@ export const Input = ({ endAdornment, className, search = false, ...props }: Inp
       <input
         type="text"
         className={cn(`
-          h-[48px] w-full border-gray-border px-32
+          h-[48px] w-full border-gray-200 px-32
           transition-colors duration-300 placeholder:font-poppins
-          placeholder:text-[16px] text-gray-700 placeholder-gray-800 hover:border-blue
+          placeholder:text-[16px] text-gray-700 placeholder-gray-800 hover:border-gray-200
           outline-none ${search ? 'rounded-t-[28px] border-t-[1px]' : 'rounded-[28px]'}
         `, className)}
         {...props}
