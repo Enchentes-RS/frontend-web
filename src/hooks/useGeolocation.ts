@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from 'react';
 
 type Coordinates = [number, number]; // [latitude, longitude]
 
@@ -16,7 +16,7 @@ interface IUseGeoLocation {
  * @return {{ loading: boolean, error: GeolocationPositionError | undefined, coords: Coordinates }} - Um objeto contendo o estado de carregamento, o erro e as coordenadas.
  */
 export const useGeoLocation = ({
-  localStorageKey = "is-location-granted",
+  localStorageKey = 'is-location-granted',
   callback,
 }: IUseGeoLocation) => {
   const [shouldRequestLocation, setShouldRequestLocation] = useState(false);
@@ -45,7 +45,7 @@ export const useGeoLocation = ({
     setLoading(false);
     setCoords(newCoords);
     callback(newCoords);
-    if (!("permissions" in navigator)) {
+    if (!('permissions' in navigator)) {
       localStorage.setItem(localStorageKey, JSON.stringify(true));
     }
   };
@@ -62,17 +62,17 @@ export const useGeoLocation = ({
   };
 
   useEffect(() => {
-    if ("permissions" in navigator) {
+    if ('permissions' in navigator) {
       navigator.permissions
-        .query({ name: "geolocation" })
+        .query({ name: 'geolocation' })
         .then((permissionStatus) => {
-          if (permissionStatus.state !== "granted") {
+          if (permissionStatus.state !== 'granted') {
             setShouldRequestLocation(true);
           }
         });
     } else {
       const isLocationGranted = JSON.parse(
-        localStorage.getItem(localStorageKey) || "false"
+        localStorage.getItem(localStorageKey) || 'false',
       );
       if (!isLocationGranted) {
         setShouldRequestLocation(true);
@@ -82,11 +82,11 @@ export const useGeoLocation = ({
   }, []);
 
   useEffect(() => {
-    if (!("geolocation" in navigator)) {
+    if (!('geolocation' in navigator)) {
       const geoError = new GeolocationPositionError();
       setError({
         ...geoError,
-        message: "Geolocation not supported",
+        message: 'Geolocation not supported',
       });
     } else if (shouldRequestLocation) {
       setLoading(true);

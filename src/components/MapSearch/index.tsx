@@ -1,7 +1,8 @@
-import { useState } from "react";
-import type { FormattedCSVData } from "../../services/getCSVData";
-import { Input } from "../Input";
-import { Search } from "../../icons";
+import { useState } from 'react';
+
+import { Search } from '../../icons';
+import type { FormattedCSVData } from '../../services/getCSVData';
+import { Input } from '../Input';
 import "../../styles/globals.css";
 
 type MapSearchProps = {
@@ -13,7 +14,7 @@ export const MapSearch = ({
   coordinatesWithData = [],
   flyToCoordinate,
 }: MapSearchProps) => {
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('');
   const [filteredData, setFilteredData] =
     useState<FormattedCSVData[]>(coordinatesWithData);
   const [searchActive, setSearchActive] = useState(false);
@@ -33,7 +34,7 @@ export const MapSearch = ({
     }
 
     const searchResults = coordinatesWithData.filter((coordinateData) => {
-      const { LOCAL = "", ENDERECO = "" } = coordinateData.properties;
+      const { LOCAL = '', ENDERECO = '' } = coordinateData.properties;
 
       return (
         LOCAL.toLowerCase().includes(value.toLowerCase()) ||
@@ -45,7 +46,7 @@ export const MapSearch = ({
   };
 
   return (
-    <div className="absolute top-[2rem] left-[50%] translate-x-[-50%] h-[4.5rem] w-[90%] z-[1]">
+    <div className="absolute left-[50%] top-[2rem] z-[1] h-[4.5rem] w-[90%] translate-x-[-50%]">
       <Input
         placeholder="Procurar locais"
         value={inputValue}
