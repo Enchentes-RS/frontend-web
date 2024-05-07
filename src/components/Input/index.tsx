@@ -1,4 +1,5 @@
 import type { InputHTMLAttributes } from 'react';
+
 import { cn } from '@/utils/classnames';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -6,20 +7,26 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   search?: boolean;
 }
 
-export const Input = ({ endAdornment, className, search = false, ...props }: InputProps) => {
+export const Input = ({
+  endAdornment,
+  className,
+  search = false,
+  ...props
+}: InputProps) => {
   return (
     <fieldset className="relative w-full">
       <input
         type="text"
-        className={cn(`
-          h-[48px] w-full border-gray-200 px-32
-          transition-colors duration-300 placeholder:font-poppins
-          placeholder:text-[16px] text-gray-700 placeholder-gray-800 hover:border-gray-200
-          outline-none ${search ? 'rounded-t-[28px] border-t-[1px]' : 'rounded-[28px]'}
-        `, className)}
+        className={cn(
+          'placeholder:font-poppins h-[48px] w-full border-gray-200 px-32',
+          'text-gray-700 placeholder-gray-800 outline-none transition-colors',
+          'duration-300 placeholder:text-base hover:border-gray-200',
+          search ? 'rounded-t-[28px] border-t' : 'rounded-[28px]',
+          className,
+        )}
         {...props}
       />
       {endAdornment}
     </fieldset>
   );
-}
+};
