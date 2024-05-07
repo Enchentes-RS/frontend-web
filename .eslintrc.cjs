@@ -19,7 +19,13 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     'sourceType': 'module',
-    'ecmaVersion': 'latest'
+    'ecmaVersion': 'latest',
+    'ecmaFeatures': { jsx: true },
+  },
+  settings: {
+    react: {
+      version: "detect" // Automatically detect the version of React
+    }
   },
   plugins: [
     'react-refresh',
@@ -50,6 +56,7 @@ module.exports = {
       },
     ],
     '@typescript-eslint/consistent-type-imports': 'error',
+    '@typescript-eslint/no-explicit-any': 'error',
     'import/newline-after-import': 'error',
     'import/no-duplicates': 'error',
     'import/no-extraneous-dependencies': 'off',
