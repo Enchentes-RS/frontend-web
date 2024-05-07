@@ -1,25 +1,25 @@
 import type { InputHTMLAttributes } from 'react';
-
 import { cn } from '@/utils/classnames';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   endAdornment?: JSX.Element;
+  search?: boolean;
 }
 
-export const Input = ({ endAdornment, className, ...props }: InputProps) => {
+export const Input = ({ endAdornment, className, search = false, ...props }: InputProps) => {
   return (
     <fieldset className="relative w-full">
       <input
         type="text"
-        className={cn(
-          'border-gray-border placeholder:font-poppins hover:border-blue',
-          'focus:border-blue h-[4.5rem] w-full rounded-full border-[1px] px-32',
-          'transition-colors duration-300 placeholder:text-[1.6rem] focus:border-[2px]',
-          className,
-        )}
+        className={cn(`
+          h-[48px] w-full border-gray-200 px-32
+          transition-colors duration-300 placeholder:font-poppins
+          placeholder:text-[16px] text-gray-700 placeholder-gray-800 hover:border-gray-200
+          outline-none ${search ? 'rounded-t-[28px] border-t-[1px]' : 'rounded-[28px]'}
+        `, className)}
         {...props}
       />
       {endAdornment}
     </fieldset>
   );
-};
+}
