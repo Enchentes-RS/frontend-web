@@ -77,7 +77,11 @@ export const MapSearch = ({
           </ul>
         </div>
       ) : (
-        null
+        <div className="bg-white rounded-lg border-lg border-gray-border mt-5 shadow-lg">
+          <p className="text-gray-800 font-inter font-normal text-sm leading-6 p-8">
+            Nenhum resultado encontrado
+          </p>
+        </div>
       )}
 
     </div>
