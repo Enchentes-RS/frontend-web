@@ -3,10 +3,11 @@ module.exports = {
   env: { browser: true, es2020: true },
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
+    'plugin:import/recommended',
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
   ],
   globals: { React: true, JSX: true },
@@ -24,7 +25,7 @@ module.exports = {
   },
   settings: {
     react: {
-      version: "detect" // Automatically detect the version of React
+      version: "detect"
     }
   },
   plugins: [
@@ -33,13 +34,13 @@ module.exports = {
     'react-hooks',
     'prettier',
     'import',
-    'simple-import-sort',
+    'unicorn',
   ],
   rules: {
     'prettier/prettier': [
       'error',
       {
-        semi: true,
+        semi: false,
         tabWidth: 2,
         useTabs: false,
         singleQuote: true,
@@ -55,26 +56,76 @@ module.exports = {
         plugins: ['prettier-plugin-tailwindcss'],
       },
     ],
-    '@typescript-eslint/consistent-type-imports': 'error',
+    '@typescript-eslint/consistent-type-imports': [
+      'warn',
+      {
+        disallowTypeAnnotations: true,
+        fixStyle: 'separate-type-imports',
+        prefer: 'type-imports',
+      },
+    ],
+    '@typescript-eslint/naming-convention': [
+      'error',
+      {
+        format: ['PascalCase'],
+        selector: ['typeLike', 'enumMember'],
+      },
+      {
+        custom: {
+          match: false,
+          regex: '^I[A-Z]|^(Interface|Props|State)$',
+        },
+        format: ['PascalCase'],
+        selector: 'interface',
+      },
+    ],
     '@typescript-eslint/no-explicit-any': 'error',
+    'import/default': 'off',
+    'import/export': 'off',
+    'import/first': 'error',
+    'import/namespace': 'off',
     'import/newline-after-import': 'error',
+    'import/no-absolute-path': 'error',
+    'import/no-default-export': 'error',
     'import/no-duplicates': 'error',
     'import/no-extraneous-dependencies': 'off',
-    'import/no-default-export': 'error',
-    'import/first': 'error',
-    'import/newline-after-import': 'error',
-    'import/no-duplicates': 'error',
+    'import/no-unresolved': 'off',
+    'import/order': [
+      'warn',
+      {
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          'parent',
+          'sibling',
+          'index',
+        ],
+        'newlines-between': 'always',
+      },
+    ],
     'no-console': 'warn',
-    'react/jsx-filename-extension': [1, { extensions: ['.tsx'] }],
-    'react/react-in-jsx-scope': 'off',
+    'no-var': 'error',
+    'object-shorthand': 'warn',
+    'prefer-const': 'warn',
     'react-hooks/exhaustive-deps': 'warn',
     'react-hooks/rules-of-hooks': 'error',
+    'react/button-has-type': 'warn',
+    'react/function-component-definition': ['warn', { "namedComponents": "arrow-function" }],
+    'react/jsx-pascal-case': 'warn',
+    'react/prop-types': 'off',
+    'react/react-in-jsx-scope': 'off',
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
     ],
-    'simple-import-sort/imports': 'error',
-    'simple-import-sort/exports': 'error',
+    'unicorn/filename-case': [
+      'error',
+      {
+        case: 'kebabCase',
+      },
+    ],
+    'unicorn/prefer-node-protocol': 'warn',
   },
   overrides: [
     {
