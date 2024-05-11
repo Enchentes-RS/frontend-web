@@ -1,5 +1,5 @@
 {
-  "name": "@enchentes-rs/frontend-dashboard",
+  "name": "@enchentes-rs/frontend-web",
   "private": true,
   "version": "1.0.0",
   "type": "module",

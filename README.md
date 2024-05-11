@@ -1,6 +1,6 @@
 # Mapa Solidário
 
-## Projeto para o dashboard
+## Projeto frontend para o site
 
 ---
 
