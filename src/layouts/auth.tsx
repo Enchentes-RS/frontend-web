@@ -1,15 +1,18 @@
 import { Outlet } from 'react-router-dom'
 
+import logo from '@/assets/logo.png'
+
 export const AuthLayout = () => {
   return (
-    <div className="grid min-h-screen grid-cols-2">
-      <section className="flex h-full flex-col justify-between border-r-2 border-foreground/5 bg-muted p-10">
-        <header className="flex items-center gap-3 text-foreground">
-          <span className="text-xl font-semibold">Mapa Solidário</span>
-        </header>
-        <footer className="text-xs text-muted-foreground">
-          Mapa Solidário - {new Date().getFullYear()}
-        </footer>
+    <div className="min-h-screen w-full lg:grid lg:grid-cols-2">
+      <section className="hidden h-full items-center justify-center border-r-2 border-foreground/5 bg-muted p-10 lg:flex">
+        <img
+          className="size-48"
+          src={logo}
+          alt="Mapa Solidário"
+          width="345"
+          height="329"
+        />
       </section>
       <section className="flex items-center justify-center p-10">
         <Outlet />
