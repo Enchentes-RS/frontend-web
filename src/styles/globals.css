@@ -56,4 +56,9 @@
   body {
     @apply bg-background text-foreground antialiased;
   }
+  html,
+  body,
+  #root {
+    @apply h-full;
+  }
 }
