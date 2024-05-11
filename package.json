@@ -1,13 +1,12 @@
 {
-  "name": "@enchentes-rs/frontend-web",
+  "name": "@enchentes-rs/frontend-dashboard",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "format": "pnpm lint --fix",
     "preview": "vite preview",
     "prepare": "husky",
     "generate": "pnpm dlx shadcn-ui@latest add"

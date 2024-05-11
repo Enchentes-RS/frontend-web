@@ -1,6 +1,6 @@
 # Mapa Solidário
 
-## Projeto frontend web para o dashboard
+## Projeto para o dashboard
 
 ---
 
@@ -37,9 +37,7 @@ cp .env.example .env.local
 
 - `build`: Este script primeiro executa o TypeScript Compiler (`tsc`) para verificar se há erros de tipo no código e, em seguida, constrói a aplicação para produção usando o Vite.
 
-- `lint`: Este script executa o ESLint, uma ferramenta para identificar e relatar padrões encontrados no código ECMAScript/JavaScript, com o objetivo de tornar o código mais consistente e evitar bugs.
-
-- `format`: Este script executa o ESLint com a opção `--fix`, que tenta corrigir automaticamente qualquer problema de formatação que possa ser corrigido.
+- `lint`: Este script executa o ESLint, uma ferramenta para identificar e relatar padrões encontrados no código ECMAScript/JavaScript, com o objetivo de tornar o código mais consistente e evitar bugs. Você pode executar o ESLint com a opção `--fix`, que tenta corrigir automaticamente qualquer problema de formatação que possa ser corrigido.
 
 - `preview`: Este script inicia o servidor de visualização Vite, que permite visualizar a versão de produção do aplicativo.
 
