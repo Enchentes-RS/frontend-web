@@ -45,4 +45,6 @@ cp .env.example .env.local
 
 - `prepare`: Este script é usado para configurar o Husky, uma ferramenta que facilita a execução de scripts antes de commits ou pushes (por exemplo, para garantir que o código seja formatado corretamente ou que todos os testes passem antes de fazer um commit).
 
+- `generate`: Este script executa o comando `shadcn-ui@latest add`, que adiciona novos componentes ao projeto. Ele faz isso através da CLI do Shadcn UI.
+
 Lembre-se de que todos esses scripts podem ser executados no terminal com o comando `pnpm <nome-do-script>` (por exemplo, `pnpm dev` para iniciar o servidor de desenvolvimento).

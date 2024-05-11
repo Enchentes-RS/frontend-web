@@ -1,3 +1,4 @@
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
@@ -25,7 +26,7 @@ module.exports = {
   },
   settings: {
     react: {
-      version: "detect"
+      version: 'detect'
     }
   },
   plugins: [
@@ -33,8 +34,9 @@ module.exports = {
     'react',
     'react-hooks',
     'prettier',
-    'import',
     'unicorn',
+    'import',
+    'simple-import-sort',
   ],
   rules: {
     'prettier/prettier': [
@@ -111,14 +113,12 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'react-hooks/rules-of-hooks': 'error',
     'react/button-has-type': 'warn',
-    'react/function-component-definition': ['warn', { "namedComponents": "arrow-function" }],
+    'react/function-component-definition': ['warn', { 'namedComponents': 'arrow-function' }],
     'react/jsx-pascal-case': 'warn',
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
     'unicorn/filename-case': [
       'error',
       {
