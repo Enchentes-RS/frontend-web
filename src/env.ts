@@ -1,10 +1,14 @@
-import { z } from 'zod'
+import type { z } from 'zod'
 
-const envSchema = z.object({
-  VITE_API_URL: z.string(),
-  MODE: z.enum(['production', 'development', 'test']),
-})
+import { envSchema } from '@/schemas/env'
 
-export const env = envSchema.parse(import.meta.env)
+const parsedEnv = envSchema.safeParse(import.meta.env)
+
+if (!parsedEnv.success) {
+  console.error('Invalid environment variables.', parsedEnv.error.format())
+  throw new Error('Invalid environment variables.')
+}
+
+export const env = parsedEnv.data
 
 export type Env = z.infer<typeof envSchema>
