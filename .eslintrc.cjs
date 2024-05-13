@@ -109,7 +109,7 @@ module.exports = {
         },
       },
     ],
-    'no-console': 'warn',
+    'no-console': ['warn', { allow: ['warn', 'error'] }],
     'no-var': 'error',
     'object-shorthand': 'warn',
     'prefer-const': 'warn',
