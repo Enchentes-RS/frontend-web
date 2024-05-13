@@ -36,7 +36,6 @@ module.exports = {
     'prettier',
     'unicorn',
     'import',
-    'simple-import-sort',
   ],
   rules: {
     'prettier/prettier': [
@@ -93,7 +92,7 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'import/no-unresolved': 'off',
     'import/order': [
-      'warn',
+      'error',
       {
         groups: [
           'builtin',
@@ -104,6 +103,10 @@ module.exports = {
           'index',
         ],
         'newlines-between': 'always',
+        'alphabetize': {
+          order: 'asc',
+          caseInsensitive: true,
+        },
       },
     ],
     'no-console': 'warn',
@@ -117,8 +120,6 @@ module.exports = {
     'react/jsx-pascal-case': 'warn',
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
-    'simple-import-sort/imports': 'error',
-    'simple-import-sort/exports': 'error',
     'unicorn/filename-case': [
       'error',
       {
