@@ -1,6 +1,7 @@
-import "leaflet/dist/leaflet.css";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import centrosVoluntariosRS from "@/../centros_voluntarios_rs.json";
+import 'leaflet/dist/leaflet.css'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+
+import centrosVoluntariosRS from '@/../centros_voluntarios_rs.json'
 
 export const MapPage = () => {
   return (
@@ -23,5 +24,5 @@ export const MapPage = () => {
         ))}
       </MapContainer>
     </div>
-  );
-};
+  )
+}
