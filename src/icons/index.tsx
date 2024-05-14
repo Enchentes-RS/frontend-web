@@ -1,3 +1,5 @@
 export { AddLocation } from './add-location'
+export { Hotel } from './hotel'
 export { Info } from './info'
 export { Map } from './map'
+export { VolunteerActivism } from './volunteer-activism'
