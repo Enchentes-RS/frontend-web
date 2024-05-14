@@ -4,9 +4,9 @@ import type { LocalsResponse } from './types'
 
 import { api } from '@/lib/axios'
 
-const endpoints = {
-  locals: '/locals',
-}
+// const endpoints = {
+//   locals: '/locals',
+// }
 
 const localsKeys = {
   all: ['locals'] as const,
@@ -22,9 +22,9 @@ const localsApi = {
       queryKey: localsKeys.all,
       queryFn: async () => {
         const response = await api.get<{ data: LocalsResponse }>(
-          "https://api.mapasolidario.com.br/locals",
+          'https://api.mapasolidario.com.br/locals',
         )
-        console.log(response.data);
+        // console.log(response.data)
         return response.data.data
       },
     }),

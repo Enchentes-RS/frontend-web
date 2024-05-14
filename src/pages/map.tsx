@@ -1,11 +1,11 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
-import { useLocalsQuery } from "@/api/locals";
+import { useLocalsQuery } from '@/api/locals'
 
-import "leaflet/dist/leaflet.css";
+import 'leaflet/dist/leaflet.css'
 
 export const MapPage = () => {
-  const { data: locals, isLoading } = useLocalsQuery();
+  const { data: locals, isLoading } = useLocalsQuery()
 
   return isLoading ? (
     <div>Loading...</div>
@@ -29,5 +29,5 @@ export const MapPage = () => {
         ))}
       </MapContainer>
     </div>
-  );
-};
+  )
+}
