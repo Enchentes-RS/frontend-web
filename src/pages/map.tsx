@@ -1,7 +1,8 @@
-import { useLocalsQuery } from '@/api/locals'
+// import { useLocalsQuery } from '@/api/locals'
+import locals from '@/data/locals.json'
 
 export const MapPage = () => {
-  const { data: locals } = useLocalsQuery()
+  // const { data: locals } = useLocalsQuery()
 
   // eslint-disable-next-line no-console
   console.log(locals)
