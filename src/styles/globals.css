@@ -4,8 +4,7 @@
 
 @layer base {
   body {
-    @apply min-w-[320px];
-    @apply antialiased;
+    @apply min-w-[320px] antialiased;
   }
 }
 
