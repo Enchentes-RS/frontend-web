@@ -4,10 +4,10 @@ import { CardLocal } from './card-local'
 
 import 'keen-slider/keen-slider.min.css'
 
-import type { LocalsResponse } from '@/api/locals/types'
+import type { Local } from '@/api/locals/types'
 
 interface CardLocalProps {
-  locals: LocalsResponse
+  locals: Local[]
 }
 
 const CardSlider = ({ locals }: CardLocalProps) => {
