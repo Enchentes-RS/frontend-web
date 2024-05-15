@@ -14,7 +14,7 @@ const SearchField = React.forwardRef<HTMLInputElement, SearchFieldProps>(
     return (
       <div
         className={cn(
-          'flex h-14 max-w-[695px] items-center gap-2 rounded-full bg-white pl-6 pr-4 text-base shadow-md ring-offset-white transition placeholder:text-base placeholder:text-gray-500 focus-within:outline-none focus-within:ring-4 focus-within:ring-gray-950/30 focus-within:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ',
+          'flex h-14 max-w-[695px] items-center gap-2 rounded-full bg-white pl-6 pr-4 text-base shadow ring-offset-white transition placeholder:text-base placeholder:text-gray-500 focus-within:outline-none focus-within:ring-4 focus-within:ring-gray-950/20 focus-within:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ',
           className,
         )}
       >

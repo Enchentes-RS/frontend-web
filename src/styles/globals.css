@@ -11,3 +11,7 @@
 .leaflet-container {
   @apply h-full;
 }
+
+.keen-slider:not([data-keen-slider-disabled]) {
+  @apply !overflow-visible overflow-x-hidden;
+}

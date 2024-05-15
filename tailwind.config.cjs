@@ -13,6 +13,10 @@ module.exports = {
       padding: '2rem',
     },
     extend: {
+      boxShadow: {
+        DEFAULT: '0px 1px 3px 0px rgb(0 0 0 / 0.3), 0px 4px 8px 3px rgb(0 0 0 / 0.15)',
+        md: '0px 4px 4px 0px rgb(0 0 0 / 0.3), 0px 8px 12px 6px rgb(0 0 0 / 0.15)',
+      },
       colors: {
         green: {
           50: '#ecfdf6',

@@ -52,7 +52,7 @@ export const MapPage = () => {
             ))}
           </MapContainer>
           {locals && (
-            <div className="absolute bottom-20 left-1/2 z-[9999] ml-4 w-full max-w-[1142px] -translate-x-1/2 transform xl:ml-0">
+            <div className="absolute bottom-4 left-0 right-0 z-20 sm:bottom-20">
               <CardSlider locals={locals} />
             </div>
           )}

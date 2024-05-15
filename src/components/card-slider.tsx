@@ -14,45 +14,22 @@ interface CardLocalProps extends React.HTMLAttributes<HTMLDivElement> {
 const CardSlider = ({ locals, className, ...props }: CardLocalProps) => {
   const [sliderRef] = useKeenSlider({
     slides: {
-      perView: 4,
-      spacing: 12,
-    },
-    breakpoints: {
-      '(max-width: 1280px)': {
-        slides: {
-          perView: 3,
-          spacing: 8,
-        },
-      },
-      '(max-width: 980px)': {
-        slides: {
-          perView: 'auto',
-          spacing: 8,
-        },
-      },
-      '(max-width: 500px)': {
-        slides: {
-          origin: 'center',
-          perView: 'auto',
-          spacing: 6,
-        },
-      },
+      perView: 'auto',
+      spacing: 16,
     },
   })
+
   return (
     <div
       ref={sliderRef}
-      className={cn(
-        'keen-slider flex h-48 max-w-[1142px] overflow-hidden',
-        className,
-      )}
+      className={cn('keen-slider flex h-48', className)}
       {...props}
     >
       {locals.map((local) => (
         <CardLocal
           key={local._id}
           local={local}
-          className="keen-slider__slide"
+          className="keen-slider__slide first:ml-4 last:mr-4 sm:first:ml-24"
         />
       ))}
     </div>
