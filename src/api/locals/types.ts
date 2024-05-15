@@ -1,25 +1,11 @@
 export type Local = {
-  id: string
+  _id: string
   name: string
   address: string
   latitude: number
   longitude: number
-  donations?:
-    | 'receiving'
-    | 'not_receiving'
-    | 'urgency'
-    | 'not_information'
-    | 'by_scale'
-    | 'under_control'
-    | ''
-  volunteers?:
-    | 'receiving'
-    | 'not_receiving'
-    | 'urgency'
-    | 'not_information'
-    | 'by_scale'
-    | 'under_control'
-    | ''
+  donations?: 'receiving' | 'not_receiving' | 'urgency'
+  volunteers?: 'receiving' | 'not_receiving' | 'urgency'
 }
 
 export type LocalsResponse = Local[]
