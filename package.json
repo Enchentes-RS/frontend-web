@@ -9,7 +9,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "prepare": "husky",
-    "generate": "pnpm dlx shadcn-ui@latest add"
+    "generate": "pnpm dlx shadcn-ui@latest add && pnpm lint --fix"
   },
   "dependencies": {
     "@radix-ui/react-label": "^2.0.2",
@@ -17,18 +17,23 @@
     "@tanstack/react-query": "^5.35.5",
     "axios": "^1.6.8",
     "class-variance-authority": "^0.7.0",
+    "leaflet": "^1.9.4",
     "localforage": "^1.10.0",
     "lucide-react": "^0.378.0",
+    "mapbox-gl": "^3.3.0",
     "match-sorter": "^6.3.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-helmet-async": "^2.0.5",
+    "react-leaflet": "^4.2.1",
+    "react-map-gl": "^7.1.7",
     "react-router-dom": "^6.23.1",
     "sort-by": "^1.2.0",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/leaflet": "^1.9.12",
     "@types/node": "^20.12.11",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.0",
