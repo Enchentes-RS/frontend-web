@@ -11,13 +11,10 @@ const badgeVariants = cva(
         receiving: 'bg-green-200 text-green-900',
         not_receiving: 'bg-green-200 text-green-900',
         urgency: 'bg-red-200 text-red-700',
-        no_information: 'bg-white text-zinc-700',
-        under_control: 'bg-green-200 text-green-700',
-        by_scale: 'bg-blue-200 text-blue-700',
       },
     },
     defaultVariants: {
-      variant: 'no_information',
+      variant: 'receiving',
     },
   },
 )
@@ -26,9 +23,6 @@ const variantLabels = {
   receiving: 'Recebendo',
   not_receiving: 'Não recebendo',
   urgency: 'Urgente',
-  no_information: 'Sem informações',
-  under_control: 'Sob controle',
-  by_scale: 'Por escala',
 }
 
 export interface BadgeProps
@@ -36,7 +30,7 @@ export interface BadgeProps
     VariantProps<typeof badgeVariants> {}
 
 const BadgeLocal = ({ className, variant, ...props }: BadgeProps) => {
-  const label = variant ?? 'no_information'
+  const label = variant ?? 'receiving'
   return (
     <div className={cn(badgeVariants({ variant }), className)} {...props}>
       {variantLabels[label]}
