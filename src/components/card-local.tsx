@@ -1,3 +1,5 @@
+import type * as React from 'react'
+
 import { BadgeLocal } from './badge-local'
 import { Card } from './card'
 
@@ -5,9 +7,8 @@ import type { Local } from '@/api/locals/types'
 import { VolunteerActivism } from '@/icons/volunteer-activism'
 import { cn } from '@/lib/utils'
 
-interface CardLocalProps {
+interface CardLocalProps extends React.HTMLAttributes<HTMLDivElement> {
   local: Local
-  className?: string
 }
 
 const CardLocal = ({ local, className }: CardLocalProps) => {
@@ -18,8 +19,8 @@ const CardLocal = ({ local, className }: CardLocalProps) => {
         className,
       )}
     >
-      <div className="flex h-10 w-10 items-center justify-center">
-        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-500 text-white">
+      <div className="flex size-10 items-center justify-center">
+        <div className="flex size-8 items-center justify-center rounded-full bg-blue-500 text-white">
           <VolunteerActivism className="h-4 w-4" />
         </div>
       </div>
