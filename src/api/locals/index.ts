@@ -4,9 +4,9 @@ import type { LocalsResponse } from './types'
 
 import { api } from '@/lib/axios'
 
-// const endpoints = {
-//   locals: '/locals',
-// }
+const endpoints = {
+  locals: '/locals',
+}
 
 const localsKeys = {
   all: ['locals'] as const,
@@ -21,9 +21,7 @@ const localsApi = {
     useQuery({
       queryKey: localsKeys.all,
       queryFn: async () => {
-        const response = await api.get<LocalsResponse>(
-          'https://api.mapasolidario.com.br/locals',
-        )
+        const response = await api.get<LocalsResponse>(endpoints.locals)
         return response.data
       },
     }),

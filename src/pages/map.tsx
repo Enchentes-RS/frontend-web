@@ -7,9 +7,9 @@ export const MapPage = () => {
   const { data: locals, isLoading } = useLocalsQuery()
 
   return (
-    <div>
+    <div className="h-full">
       {isLoading ? (
-        <div className="flex h-screen items-center justify-center">
+        <div className="flex h-full items-center justify-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
