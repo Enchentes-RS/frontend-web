@@ -8,3 +8,7 @@
     @apply antialiased;
   }
 }
+
+.leaflet-container {
+  @apply h-full;
+}
