@@ -18,7 +18,13 @@ const CardSlider = ({ locals, className, ...props }: CardLocalProps) => {
       spacing: 12,
     },
     breakpoints: {
-      '(max-width: 768px)': {
+      '(max-width: 1280px)': {
+        slides: {
+          perView: 3,
+          spacing: 8,
+        },
+      },
+      '(max-width: 980px)': {
         slides: {
           perView: 'auto',
           spacing: 8,
@@ -37,7 +43,7 @@ const CardSlider = ({ locals, className, ...props }: CardLocalProps) => {
     <div
       ref={sliderRef}
       className={cn(
-        'keen-slider ml-4 flex h-48 max-w-[1142px] overflow-hidden xl:ml-0',
+        'keen-slider flex h-48 max-w-[1142px] overflow-hidden',
         className,
       )}
       {...props}
