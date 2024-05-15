@@ -1,4 +1,5 @@
-import { cva, type VariantProps } from 'class-variance-authority'
+import type { VariantProps } from 'class-variance-authority'
+import { cva } from 'class-variance-authority'
 import type * as React from 'react'
 
 import { cn } from '@/lib/utils'
@@ -9,7 +10,7 @@ const badgeVariants = cva(
     variants: {
       variant: {
         receiving: 'bg-green-200 text-green-900',
-        not_receiving: 'bg-green-200 text-green-900',
+        not_receiving: 'bg-yellow-200 text-yellow-900',
         urgency: 'bg-red-200 text-red-700',
       },
     },
@@ -25,15 +26,18 @@ const variantLabels = {
   urgency: 'Urgente',
 }
 
-export interface BadgeProps
+export interface BadgeLocalProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof badgeVariants> {}
 
-const BadgeLocal = ({ className, variant, ...props }: BadgeProps) => {
-  const label = variant ?? 'receiving'
+const BadgeLocal = ({ className, variant, ...props }: BadgeLocalProps) => {
+  const parsedVariant = variant ?? 'receiving'
   return (
-    <div className={cn(badgeVariants({ variant }), className)} {...props}>
-      {variantLabels[label]}
+    <div
+      className={cn(badgeVariants({ variant: parsedVariant, className }))}
+      {...props}
+    >
+      {variantLabels[parsedVariant]}
     </div>
   )
 }
