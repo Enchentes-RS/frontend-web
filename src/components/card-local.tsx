@@ -3,14 +3,21 @@ import { Card } from './card'
 
 import type { Local } from '@/api/locals/types'
 import { VolunteerActivism } from '@/icons/volunteer-activism'
+import { cn } from '@/lib/utils'
 
 interface CardLocalProps {
   local: Local
+  className?: string
 }
 
-const CardLocal = ({ local }: CardLocalProps) => {
+const CardLocal = ({ local, className }: CardLocalProps) => {
   return (
-    <Card className="flex h-40 w-[278px] gap-1 p-4 pb-6 shadow-lg">
+    <Card
+      className={cn(
+        'flex h-40 w-[278px] min-w-[278px] gap-1 p-4 pb-6 shadow-lg',
+        className,
+      )}
+    >
       <div className="flex h-10 w-10 items-center justify-center">
         <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-500 text-white">
           <VolunteerActivism className="h-4 w-4" />
