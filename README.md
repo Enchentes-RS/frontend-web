@@ -4,6 +4,16 @@
 
 ---
 
+### Variáveis de ambiante
+
+Este projeto usa variáveis de ambiente para gerenciar configurações sensíveis. Para usar essas variáveis de ambiente, você deve criar uma cópia do arquivo `.env.example` e renomeá-lo para `.env.local`. No terminal, você pode fazer isso com o seguinte comando:
+
+```bash
+cp .env.example .env.local
+```
+
+> Certifique-se de configurar as variáveis de ambiente antes de tentar rodar o projeto.
+
 ### Pré-requisitos
 
 Para rodar este projeto, você precisa ter o `pnpm` instalado em sua máquina. O `pnpm` é um gerenciador de pacotes rápido, eficiente e determinístico para JavaScript.
@@ -21,15 +31,7 @@ pnpm install
 pnpm dev
 ```
 
-> Por favor, certifique-se de ter o `pnpm` instalado antes de tentar rodar o projeto.
-
-### Variáveis de ambiante
-
-- `Variáveis de Ambiente`: Este projeto usa variáveis de ambiente para gerenciar configurações sensíveis. Para usar essas variáveis de ambiente, você deve criar uma cópia do arquivo `.env.example` e renomeá-lo para `.env.local`. No terminal, você pode fazer isso com o seguinte comando:
-
-```bash
-cp .env.example .env.local
-```
+> Certifique-se de ter o `pnpm` instalado antes de tentar rodar o projeto.
 
 ### Scripts
 

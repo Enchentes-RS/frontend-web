@@ -9,7 +9,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "prepare": "husky",
-    "generate": "pnpm dlx shadcn-ui@latest add"
+    "generate": "pnpm dlx shadcn-ui@latest add && pnpm lint --fix"
   },
   "dependencies": {
     "@radix-ui/react-label": "^2.0.2",
