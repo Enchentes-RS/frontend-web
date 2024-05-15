@@ -2,12 +2,13 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
 import { useLocalsQuery } from '@/api/locals'
 import 'leaflet/dist/leaflet.css'
+import { CardSlider } from '@/components/card-slider'
 
 export const MapPage = () => {
   const { data: locals, isLoading } = useLocalsQuery()
 
   return (
-    <div className="h-full">
+    <>
       {isLoading ? (
         <div className="flex h-full items-center justify-center">
           <svg
@@ -32,24 +33,31 @@ export const MapPage = () => {
           </svg>
         </div>
       ) : (
-        <MapContainer center={[-30.033, -51.23]} zoom={13}>
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          {locals?.map((local, index) => (
-            <Marker
-              key={index}
-              position={[
-                Number(local.latitude) || 0,
-                Number(local.longitude) || 0,
-              ]}
-            >
-              <Popup>AQUI VAI O CARD DE DOAÇÃO OU ABRIGO</Popup>
-            </Marker>
-          ))}
-        </MapContainer>
+        <div className="relative h-full">
+          <MapContainer center={[-30.033, -51.23]} zoom={13}>
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            {locals?.map((local, index) => (
+              <Marker
+                key={index}
+                position={[
+                  Number(local.latitude) || 0,
+                  Number(local.longitude) || 0,
+                ]}
+              >
+                <Popup>AQUI VAI O CARD DE DOAÇÃO OU ABRIGO</Popup>
+              </Marker>
+            ))}
+          </MapContainer>
+          {locals && (
+            <div className="absolute bottom-20 left-1/2 z-[9999] ml-4 w-full max-w-[1142px] -translate-x-1/2 transform xl:ml-0">
+              <CardSlider locals={locals} />
+            </div>
+          )}
+        </div>
       )}
-    </div>
+    </>
   )
 }
