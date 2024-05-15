@@ -15,13 +15,13 @@ const CardLocal = ({ local, className }: CardLocalProps) => {
   return (
     <Card
       className={cn(
-        'flex h-40 w-[278px] min-w-[278px] gap-1 p-4 pb-6 shadow-lg',
+        'flex h-40 min-w-[278px] max-w-[278px] gap-1 p-4 pb-6 shadow-lg',
         className,
       )}
     >
       <div className="flex size-10 items-center justify-center">
-        <div className="flex size-8 items-center justify-center rounded-full bg-blue-500 text-white">
-          <VolunteerActivism className="h-4 w-4" />
+        <div className="flex size-8 items-center justify-center rounded-full bg-pink-600 text-white">
+          <VolunteerActivism className="size-4" />
         </div>
       </div>
       <div className="flex flex-col justify-between">
