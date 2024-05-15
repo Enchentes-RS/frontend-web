@@ -21,11 +21,11 @@ const localsApi = {
     useQuery({
       queryKey: localsKeys.all,
       queryFn: async () => {
-        const response = await api.get<{ data: LocalsResponse }>(
-          'https://api.mapasolidario.com.br/locals',
+        const response = await api.get<LocalsResponse>(
+          "https://api.mapasolidario.com.br/locals"
         )
-        // console.log(response.data)
-        return response.data.data
+        console.log(response.data);
+        return response.data
       },
     }),
 }
