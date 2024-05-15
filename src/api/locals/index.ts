@@ -21,9 +21,7 @@ const localsApi = {
     useQuery({
       queryKey: localsKeys.all,
       queryFn: async () => {
-        const response = await api.get<{ data: LocalsResponse }>(
-          endpoints.locals,
-        )
+        const response = await api.get<LocalsResponse>(endpoints.locals)
         return response.data
       },
     }),
