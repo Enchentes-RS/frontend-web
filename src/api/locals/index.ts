@@ -22,9 +22,8 @@ const localsApi = {
       queryKey: localsKeys.all,
       queryFn: async () => {
         const response = await api.get<LocalsResponse>(
-          "https://api.mapasolidario.com.br/locals"
+          'https://api.mapasolidario.com.br/locals',
         )
-        console.log(response.data);
         return response.data
       },
     }),
