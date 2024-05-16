@@ -34,7 +34,7 @@ const DonationInstruction = ({
         onClick={copyToClipboard}
         className={cn(
           'font-bold text-green-950',
-          copied ? 'animate-highlight-copied-text' : '',
+          copied ? 'animate-highlight-button-action' : '',
         )}
       >
         {copied ? 'Copiado!' : 'Copiar'}

@@ -88,7 +88,7 @@ module.exports = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
-        'highlight-copied-text': {
+        'highlight-button-action': {
           from: {
             'box-shadow': '2px 2px 2px 0 theme("colors.green.700")',
           },
@@ -100,7 +100,7 @@ module.exports = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'highlight-copied-text': 'highlight-copied-text 0.5s ease-out',
+        'highlight-button-action': 'highlight-button-action 0.5s ease-out',
       },
     },
   },
