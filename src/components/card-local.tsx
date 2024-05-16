@@ -1,7 +1,7 @@
 import type * as React from 'react'
 
 import { BadgeLocal } from './badge-local'
-import { Card } from './card'
+import { Card } from './ui/card'
 
 import type { Local } from '@/api/locals/types'
 import { VolunteerActivism } from '@/icons/volunteer-activism'
