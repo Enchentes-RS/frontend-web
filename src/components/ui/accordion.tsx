@@ -51,8 +51,8 @@ const AccordionContent = React.forwardRef<
 
 AccordionContent.displayName = AccordionPrimitive.Content.displayName
 
-export const Accordion = Object.assign(AccordionPrimitive.Root, {
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
+export const Accordion = Object.assign(Root, {
+  Item,
+  Trigger,
+  Content,
 })
