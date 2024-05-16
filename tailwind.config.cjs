@@ -99,6 +99,9 @@ module.exports = {
         'accordion-up': 'accordion-up 0.2s ease-out',
         'highlight-button-action': 'highlight-button-action 0.5s ease-out',
       },
+      dropShadow: {
+        icon: '2px 2px 4px rgb(0 0 0 / 0.5)',
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],
