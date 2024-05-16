@@ -48,7 +48,7 @@ export const MapPage = () => {
                     iconSize: [26, 26],
                     iconAnchor: [13, 13],
                     className:
-                      'leaflet-div-icon icon-style drop-shadow-icon rounded-50',
+                      'leaflet-div-icon icon-style drop-shadow-icon rounded-full',
                   })
                 }
                 key={index}

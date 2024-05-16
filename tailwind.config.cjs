@@ -93,9 +93,6 @@ module.exports = {
       dropShadow: {
         icon: '2px 2px 4px rgb(0 0 0 / 0.5)',
       },
-      borderRadius: {
-        '50': '50%',
-      },
     },
   },
   plugins: [require('tailwindcss-animate')],
