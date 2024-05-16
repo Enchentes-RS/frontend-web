@@ -1,10 +1,6 @@
 import type { ReactNode } from 'react'
 
-import {
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion'
+import { Accordion } from '@/components/ui/accordion'
 
 type AccordionItemWrapperProps = {
   summary: string
@@ -16,9 +12,11 @@ export const AccordionItemWrapper = ({
   children,
 }: AccordionItemWrapperProps) => {
   return (
-    <AccordionItem value={summary}>
-      <AccordionTrigger>{summary}</AccordionTrigger>
-      <AccordionContent className="text-sm">{children}</AccordionContent>
-    </AccordionItem>
+    <Accordion.AccordionItem value={summary}>
+      <Accordion.AccordionTrigger>{summary}</Accordion.AccordionTrigger>
+      <Accordion.AccordionContent className="text-sm">
+        {children}
+      </Accordion.AccordionContent>
+    </Accordion.AccordionItem>
   )
 }
