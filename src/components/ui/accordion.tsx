@@ -4,7 +4,9 @@ import * as React from 'react'
 
 import { cn } from '@/lib/utils'
 
-const AccordionItem = React.forwardRef<
+const Root = AccordionPrimitive.Root
+
+const Item = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
 >(({ className, ...props }, ref) => (
