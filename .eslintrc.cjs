@@ -14,9 +14,7 @@ module.exports = {
   globals: { React: true, JSX: true },
   ignorePatterns: [
     'dist',
-    '.eslintrc.cjs',
-    'tailwind.config.cjs',
-    'postcss.config.cjs',
+    '.eslintrc.cjs', 
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -130,9 +128,10 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['vite.config.ts'],
+      files: ['vite.config.ts', 'tailwind.config.cjs', 'postcss.config.cjs'],
       rules: {
         'import/no-default-export': 'off',
+        'no-undef': 'off'
       },
     },
   ],
