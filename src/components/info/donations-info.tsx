@@ -6,7 +6,7 @@ const DonationsInfo = () => {
   return (
     <section>
       <h2 className="mb-2 text-3xl font-bold">Doações por PIX</h2>
-      <p className="text-grey-500 mb-6 text-lg">
+      <p className="mb-6 text-lg text-gray-500">
         Lista de instituições confiáveis
       </p>
 

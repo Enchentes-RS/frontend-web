@@ -4,7 +4,7 @@ const GeneralInfo = () => {
   return (
     <section>
       <h1 className="mb-2 text-3xl font-bold">Informações</h1>
-      <p className="text-grey-500 mb-6 text-lg">
+      <p className="mb-6 text-lg text-gray-500">
         Lista de informações importantes
       </p>
 
