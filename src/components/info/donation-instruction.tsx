@@ -1,5 +1,7 @@
 import { useState } from 'react'
 
+import { Button } from '../button'
+
 import { cn } from '@/lib/utils'
 
 interface DonationInstructionProps {
@@ -26,8 +28,9 @@ const DonationInstruction = ({
     <div className="mb-6 flex flex-wrap items-center gap-4">
       <p>{pixKeyType}</p>
       <p className="text-2xl font-bold">{pixKeyValue}</p>
-      <button
+      <Button
         type="button"
+        variant={'ghost'}
         onClick={copyToClipboard}
         className={cn(
           'font-bold text-green-950',
@@ -35,7 +38,7 @@ const DonationInstruction = ({
         )}
       >
         {copied ? 'Copiado!' : 'Copiar'}
-      </button>
+      </Button>
     </div>
   )
 }

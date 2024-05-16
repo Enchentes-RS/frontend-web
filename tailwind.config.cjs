@@ -89,8 +89,12 @@ module.exports = {
           to: { height: '0' },
         },
         'highlight-copied-text': {
-          from: { filter: "drop-shadow(0 0 10px theme('colors.green.700'))" },
-          to: { filter: "drop-shadow(0 0 0 theme('colors.green.400'))" },
+          from: {
+            'box-shadow': '2px 2px 2px 0 theme("colors.green.700")',
+          },
+          to: {
+            'box-shadow': '0 0 0 0 theme("colors.green.700")',
+          },
         },
       },
       animation: {
