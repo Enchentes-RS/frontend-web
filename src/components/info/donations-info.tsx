@@ -11,7 +11,7 @@ const DonationsInfo = () => {
       </p>
 
       <Accordion
-        accordionContent={[
+        accordionItems={[
           {
             summary: 'Iniciativa do Governo do Rio Grande do Sul',
             content: (

@@ -9,7 +9,7 @@ const GeneralInfo = () => {
       </p>
 
       <Accordion
-        accordionContent={[
+        accordionItems={[
           {
             summary: 'Como pedir resgate',
             content: (

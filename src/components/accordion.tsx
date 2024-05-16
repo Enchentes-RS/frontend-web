@@ -1,16 +1,16 @@
 import { Accordion as AccordionWrapper } from '@/components/ui/accordion'
 
 interface AccordionProps {
-  accordionContent: {
+  accordionItems: {
     summary: string
     content: JSX.Element
   }[]
 }
 
-const Accordion = ({ accordionContent = [] }: AccordionProps) => {
+const Accordion = ({ accordionItems = [] }: AccordionProps) => {
   return (
     <AccordionWrapper type="single" collapsible className="w-full">
-      {accordionContent.map(({ summary, content }) => (
+      {accordionItems.map(({ summary, content }) => (
         <AccordionWrapper.Item value={summary} key={summary}>
           <AccordionWrapper.Trigger>{summary}</AccordionWrapper.Trigger>
           <AccordionWrapper.Content className="text-sm">
