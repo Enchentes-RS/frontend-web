@@ -1,11 +1,11 @@
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-
-import { useLocalsQuery } from '@/api/locals'
-import 'leaflet/dist/leaflet.css'
-import { CardSlider } from '@/components/card-slider'
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { useLocalsQuery } from "@/api/locals";
+import "leaflet/dist/leaflet.css";
+import { CardSlider } from "@/components/card-slider";
+import { Icon } from "leaflet";
 
 export const MapPage = () => {
-  const { data: locals, isLoading } = useLocalsQuery()
+  const { data: locals, isLoading } = useLocalsQuery();
 
   return (
     <>
@@ -34,13 +34,21 @@ export const MapPage = () => {
         </div>
       ) : (
         <div className="relative h-full">
-          <MapContainer center={[-30.033, -51.23]} zoom={13}>
+          <MapContainer center={[-30.0546, -51.18]} zoom={13}>
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             {locals?.map((local, index) => (
               <Marker
+                icon={
+                  new Icon({
+                    iconUrl: "/public/assets/donator.svg",
+                    iconSize: [26, 26],
+                    iconAnchor: [13, 13],
+                    className: "leaflet-div-icon icon-style",
+                  })
+                }
                 key={index}
                 position={[
                   Number(local.latitude) || 0,
@@ -59,5 +67,5 @@ export const MapPage = () => {
         </div>
       )}
     </>
-  )
-}
+  );
+};
