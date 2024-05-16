@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import { cn } from '@/lib/utils'
 
-type DonationInstructionProps = {
+interface DonationInstructionProps = {
   keyType: string
   keyValue: string
 }
