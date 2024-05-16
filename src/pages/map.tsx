@@ -1,11 +1,12 @@
-import { Icon } from "leaflet";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { useLocalsQuery } from "@/api/locals";
-import "leaflet/dist/leaflet.css";
-import { CardSlider } from "@/components/card-slider";
+import { Icon } from 'leaflet'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+
+import { useLocalsQuery } from '@/api/locals'
+import 'leaflet/dist/leaflet.css'
+import { CardSlider } from '@/components/card-slider'
 
 export const MapPage = () => {
-  const { data: locals, isLoading } = useLocalsQuery();
+  const { data: locals, isLoading } = useLocalsQuery()
 
   return (
     <>
@@ -43,10 +44,11 @@ export const MapPage = () => {
               <Marker
                 icon={
                   new Icon({
-                    iconUrl: "/public/assets/donator.svg",
+                    iconUrl: '/public/assets/donator.svg',
                     iconSize: [26, 26],
                     iconAnchor: [13, 13],
-                    className: "leaflet-div-icon icon-style",
+                    className:
+                      'leaflet-div-icon icon-style drop-shadow-icon rounded-50',
                   })
                 }
                 key={index}
@@ -68,4 +70,4 @@ export const MapPage = () => {
       )}
     </>
   )
-};
+}

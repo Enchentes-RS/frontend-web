@@ -90,6 +90,12 @@ module.exports = {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
+      dropShadow: {
+        icon: '2px 2px 4px rgb(0 0 0 / 0.5)',
+      },
+      borderRadius: {
+        '50': '50%',
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],
