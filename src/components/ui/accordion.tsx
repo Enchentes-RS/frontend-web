@@ -16,7 +16,7 @@ const Item = React.forwardRef<
     {...props}
   />
 ))
-AccordionItem.displayName = 'AccordionItem'
+Item.displayName = 'AccordionItem'
 
 const Trigger = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Trigger>,
@@ -36,7 +36,7 @@ const Trigger = React.forwardRef<
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
 ))
-AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName
+Trigger.displayName = AccordionPrimitive.Trigger.displayName
 
 const Content = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Content>,
@@ -51,7 +51,7 @@ const Content = React.forwardRef<
   </AccordionPrimitive.Content>
 ))
 
-AccordionContent.displayName = AccordionPrimitive.Content.displayName
+Content.displayName = AccordionPrimitive.Content.displayName
 
 export const Accordion = Object.assign(Root, {
   Item,
