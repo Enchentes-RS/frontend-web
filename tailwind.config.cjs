@@ -88,10 +88,15 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "highlight-copied-text": {
+          from: { filter: "drop-shadow(0 0 10px theme('colors.green.700'))" },
+          to: { filter: "drop-shadow(0 0 0 theme('colors.green.400'))" },
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "highlight-copied-text": "highlight-copied-text 0.5s ease-out",
       },
     },
   },
