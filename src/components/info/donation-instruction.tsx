@@ -19,7 +19,7 @@ export const DonationInstruction = ({
 
     setTimeout(() => {
       setCopied(false)
-    }, 1000)
+    }, 500)
   }
 
   return (
