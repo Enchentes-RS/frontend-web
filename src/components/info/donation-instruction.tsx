@@ -2,20 +2,20 @@ import { useState } from 'react'
 
 import { cn } from '@/lib/utils'
 
-interface DonationInstructionProps = {
-  keyType: string
-  keyValue: string
+interface DonationInstructionProps {
+  pixKeyType: string
+  pixKeyValue: string
 }
 
-export const DonationInstruction = ({
-  keyType,
-  keyValue,
+const DonationInstruction = ({
+  pixKeyType,
+  pixKeyValue,
 }: DonationInstructionProps) => {
   const [copied, setCopied] = useState(false)
 
   const copyToClipboard = () => {
     setCopied(true)
-    navigator.clipboard.writeText(keyValue)
+    navigator.clipboard.writeText(pixKeyValue)
 
     setTimeout(() => {
       setCopied(false)
@@ -24,8 +24,8 @@ export const DonationInstruction = ({
 
   return (
     <div className="mb-6 flex flex-wrap items-center gap-4">
-      <p>{keyType}</p>
-      <p className="text-2xl font-bold">{keyValue}</p>
+      <p>{pixKeyType}</p>
+      <p className="text-2xl font-bold">{pixKeyValue}</p>
       <button
         type="button"
         onClick={copyToClipboard}
@@ -39,3 +39,5 @@ export const DonationInstruction = ({
     </div>
   )
 }
+
+export { DonationInstruction }

@@ -3,7 +3,7 @@ import { DonationInstruction } from './donation-instruction'
 import { AccordionItemWrapper } from '@/components/accordion-item-wrapper'
 import { Accordion } from '@/components/ui/accordion'
 
-export const DonationsInfo = () => {
+const DonationsInfo = () => {
   return (
     <section>
       <h2 className="mb-2 text-3xl font-bold">Doações por PIX</h2>
@@ -13,7 +13,10 @@ export const DonationsInfo = () => {
 
       <Accordion type="single" collapsible className="w-full">
         <AccordionItemWrapper summary="Iniciativa do Governo do Rio Grande do Sul">
-          <DonationInstruction keyValue="92.958.800/0001-38" keyType="CNPJ" />
+          <DonationInstruction
+            pixKeyValue="92.958.800/0001-38"
+            pixKeyType="CNPJ"
+          />
 
           <p className="mb-6 ">
             Eis as informações da chave Pix oficial do governo do RS:
@@ -31,8 +34,8 @@ export const DonationsInfo = () => {
 
         <AccordionItemWrapper summary="A Maior Campanha Solidária do RS">
           <DonationInstruction
-            keyValue="enchentes@vakinha.com.br"
-            keyType="Email"
+            pixKeyValue="enchentes@vakinha.com.br"
+            pixKeyType="Email"
           />
 
           <p className="mb-6 ">
@@ -58,3 +61,5 @@ export const DonationsInfo = () => {
     </section>
   )
 }
+
+export { DonationsInfo }

@@ -1,7 +1,7 @@
 import { AccordionItemWrapper } from '@/components/accordion-item-wrapper'
 import { Accordion } from '@/components/ui/accordion'
 
-export const GeneralInfo = () => {
+const GeneralInfo = () => {
   return (
     <section>
       <h1 className="mb-2 text-3xl font-bold">Informações</h1>
@@ -73,3 +73,5 @@ export const GeneralInfo = () => {
     </section>
   )
 }
+
+export { GeneralInfo }
