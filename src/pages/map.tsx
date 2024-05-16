@@ -1,8 +1,8 @@
+import { Icon } from "leaflet";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useLocalsQuery } from "@/api/locals";
 import "leaflet/dist/leaflet.css";
 import { CardSlider } from "@/components/card-slider";
-import { Icon } from "leaflet";
 
 export const MapPage = () => {
   const { data: locals, isLoading } = useLocalsQuery();
@@ -67,5 +67,5 @@ export const MapPage = () => {
         </div>
       )}
     </>
-  );
+  )
 };
