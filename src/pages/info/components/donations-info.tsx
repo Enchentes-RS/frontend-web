@@ -15,16 +15,14 @@ const DonationsInfo = () => {
           {
             summary: 'Iniciativa do Governo do Rio Grande do Sul',
             content: (
-              <>
+              <div className="space-y-6">
                 <DonationInstruction
                   pixKeyValue="92.958.800/0001-38"
                   pixKeyType="CNPJ"
                 />
 
-                <p className="mb-6 ">
-                  Eis as informações da chave Pix oficial do governo do RS:
-                </p>
-                <ul className="mb-6 list-inside list-disc">
+                <p>Eis as informações da chave Pix oficial do governo do RS:</p>
+                <ul className="list-inside list-disc">
                   <li>destinatário: SOS Rio Grande do Sul</li>
                   <li>
                     instituição: Banrisul (Banco do Estado do Rio Grande do Sul)
@@ -34,24 +32,24 @@ const DonationsInfo = () => {
                     de entidades.
                   </li>
                 </ul>
-              </>
+              </div>
             ),
           },
           {
             summary: 'A Maior Campanha Solidária do RS',
             content: (
-              <>
+              <div className="space-y-6">
                 <DonationInstruction
                   pixKeyValue="enchentes@vakinha.com.br"
                   pixKeyType="Email"
                 />
 
-                <p className="mb-6 ">
+                <p>
                   O Instituto Vakinha, o Pretinho Básico e o Badin Colono se
                   juntaram para criar a maior campanha solidária do Rio Grande
                   do Sul.
                 </p>
-                <ul className="mb-6 list-inside list-disc">
+                <ul className="list-inside list-disc">
                   <li>destinatário: Vakinha</li>
                   <li>
                     Portal de Transparência das doações{' '}
@@ -65,7 +63,7 @@ const DonationsInfo = () => {
                     </a>
                   </li>
                 </ul>
-              </>
+              </div>
             ),
           },
         ]}

@@ -1,41 +1,41 @@
 import { useState } from 'react'
 
-import { Button } from '../button'
-
+import { Button } from '@/components/button'
 import { cn } from '@/lib/utils'
 
-interface DonationInstructionProps {
+interface DonationInstructionProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   pixKeyType: string
   pixKeyValue: string
 }
 
 const DonationInstruction = ({
+  className,
   pixKeyType,
   pixKeyValue,
 }: DonationInstructionProps) => {
   const [copied, setCopied] = useState(false)
 
-  const copyToClipboard = () => {
+  const handleCopyToClipboard = () => {
     setCopied(true)
     navigator.clipboard.writeText(pixKeyValue)
 
     setTimeout(() => {
       setCopied(false)
-    }, 500)
+    }, 1000)
   }
 
   return (
-    <div className="mb-6 flex flex-wrap items-center gap-4">
-      <p>{pixKeyType}</p>
-      <p className="text-2xl font-bold">{pixKeyValue}</p>
+    <div className={cn('flex items-center gap-4', className)}>
+      <div className="flex items-baseline gap-2">
+        <p>{pixKeyType}</p>
+        <p className="text-xl font-bold">{pixKeyValue}</p>
+      </div>
       <Button
         type="button"
         variant={'ghost'}
-        onClick={copyToClipboard}
-        className={cn(
-          'font-bold text-green-950',
-          copied ? 'animate-highlight-button-action' : '',
-        )}
+        onClick={handleCopyToClipboard}
+        className="font-bold text-green-950"
       >
         {copied ? 'Copiado!' : 'Copiar'}
       </Button>
