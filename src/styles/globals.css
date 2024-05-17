@@ -4,6 +4,14 @@
 
 @layer base {
   body {
-    @apply min-w-[320px];
+    @apply min-w-[320px] antialiased;
   }
+}
+
+.leaflet-container {
+  @apply h-full;
+}
+
+.keen-slider:not([data-keen-slider-disabled]) {
+  @apply !overflow-visible overflow-x-hidden;
 }

@@ -1,16 +1,14 @@
 export const ArrowBack = (props: React.ComponentProps<'svg'>) => {
   return (
     <svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
+      viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <path
-        d="M16 7H3.83L9.42 1.41L8 0L0 8L8 16L9.41 14.59L3.83 9H16V7Z"
-        fill="#49454F"
+        d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z"
+        fill="currentColor"
       />
     </svg>
   )
