@@ -13,6 +13,11 @@ module.exports = {
       padding: '2rem',
     },
     extend: {
+      boxShadow: {
+        DEFAULT:
+          '0px 1px 3px 0px rgb(0 0 0 / 0.3), 0px 4px 8px 3px rgb(0 0 0 / 0.15)',
+        md: '0px 4px 4px 0px rgb(0 0 0 / 0.3), 0px 8px 12px 6px rgb(0 0 0 / 0.15)',
+      },
       colors: {
         green: {
           50: '#ecfdf6',
@@ -85,24 +90,12 @@ module.exports = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
-        'highlight-button-action': {
-          from: {
-            'box-shadow': '2px 2px 2px 0 theme("colors.green.700")',
-          },
-          to: {
-            'box-shadow': '0 0 0 0 theme("colors.green.700")',
-          },
-        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'highlight-button-action': 'highlight-button-action 0.5s ease-out',
-      },
-      dropShadow: {
-        icon: '2px 2px 4px rgb(0 0 0 / 0.5)',
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [require('tailwindcss-animate'), require('tailwind-scrollbar')],
 }

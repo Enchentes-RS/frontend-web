@@ -12,7 +12,6 @@
   @apply h-full;
 }
 
-.icon-style {
-  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
-  border-radius: 50%;
+.keen-slider:not([data-keen-slider-disabled]) {
+  @apply !overflow-visible overflow-x-hidden;
 }
