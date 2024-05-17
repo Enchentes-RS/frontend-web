@@ -90,13 +90,12 @@ const SearchField = ({
       {search && (
         <div
           className={cn(
-            'relative max-h-[85vh] w-full max-w-[695px] rounded-b-[28px] border-t border-gray-400 bg-white py-2 text-base shadow',
-            'overflow-y-auto scrollbar scrollbar-track-transparent scrollbar-thumb-gray-400',
+            'relative  max-w-[695px] rounded-b-[28px] border-t border-gray-400 bg-white py-2 pb-4 text-base shadow',
           )}
           ref={ref}
         >
           {results.length > 0 ? (
-            <ul>
+            <ul className="max-h-[80vh] overflow-y-auto scrollbar scrollbar-track-transparent scrollbar-thumb-gray-400">
               {results.map((local) => (
                 <li
                   key={local._id}
