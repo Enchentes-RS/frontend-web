@@ -158,7 +158,7 @@ const Message = React.forwardRef<
 })
 Message.displayName = 'FormMessage'
 
-const Form = Object.assign(Root, {
+export const Form = Object.assign(Root, {
   Field,
   Item,
   Label,
@@ -167,4 +167,4 @@ const Form = Object.assign(Root, {
   Message,
 })
 
-export { useFormField, Form }
+export { useFormField }
