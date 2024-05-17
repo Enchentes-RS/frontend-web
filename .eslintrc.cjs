@@ -1,3 +1,5 @@
+const prettierConfig = require('./.prettierrc.cjs');
+
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
   root: true,
@@ -14,7 +16,7 @@ module.exports = {
   globals: { React: true, JSX: true },
   ignorePatterns: [
     'dist',
-    '.eslintrc.cjs', 
+    '.eslintrc.cjs',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -38,22 +40,7 @@ module.exports = {
   rules: {
     'prettier/prettier': [
       'error',
-      {
-        semi: false,
-        tabWidth: 2,
-        useTabs: false,
-        singleQuote: true,
-        jsxSingleQuote: false,
-        printWidth: 80,
-        bracketSpacing: true,
-        arrowParens: 'always',
-        endOfLine: 'auto',
-        trailingComma: 'all',
-        proseWrap: 'always',
-        tailwindFunctions: ['tv', 'cn'],
-        tailwindConfig: './tailwind.config.cjs',
-        plugins: ['prettier-plugin-tailwindcss'],
-      },
+      prettierConfig,
     ],
     '@typescript-eslint/consistent-type-imports': [
       'warn',
