@@ -1,6 +1,5 @@
-import { DonationInstruction } from './donation-instruction'
-
 import { Accordion } from '@/components/accordion'
+import { DonationInstruction } from '@/components/donation-instruction'
 
 const DonationsInfo = () => {
   return (

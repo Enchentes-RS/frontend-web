@@ -1,4 +1,4 @@
-import { Accordion as AccordionWrapper } from '@/components/ui/accordion'
+import { Accordion as AccordionUi } from '@/components/ui/accordion'
 
 interface AccordionProps {
   accordionItems: {
@@ -9,16 +9,16 @@ interface AccordionProps {
 
 const Accordion = ({ accordionItems = [] }: AccordionProps) => {
   return (
-    <AccordionWrapper type="single" collapsible className="w-full">
+    <AccordionUi type="single" collapsible className="w-full">
       {accordionItems.map(({ summary, content }) => (
-        <AccordionWrapper.Item value={summary} key={summary}>
-          <AccordionWrapper.Trigger>{summary}</AccordionWrapper.Trigger>
-          <AccordionWrapper.Content className="text-sm">
+        <AccordionUi.Item value={summary} key={summary}>
+          <AccordionUi.Trigger>{summary}</AccordionUi.Trigger>
+          <AccordionUi.Content className="text-sm">
             {content}
-          </AccordionWrapper.Content>
-        </AccordionWrapper.Item>
+          </AccordionUi.Content>
+        </AccordionUi.Item>
       ))}
-    </AccordionWrapper>
+    </AccordionUi>
   )
 }
 

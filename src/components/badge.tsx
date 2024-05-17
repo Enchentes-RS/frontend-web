@@ -26,11 +26,11 @@ const variantLabels = {
   urgency: 'Urgente',
 }
 
-export interface BadgeLocalProps
+export interface BadgeProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof badgeVariants> {}
 
-const BadgeLocal = ({ className, variant, ...props }: BadgeLocalProps) => {
+const Badge = ({ className, variant, ...props }: BadgeProps) => {
   const parsedVariant = variant ?? 'receiving'
   return (
     <div
@@ -42,4 +42,4 @@ const BadgeLocal = ({ className, variant, ...props }: BadgeLocalProps) => {
   )
 }
 
-export { BadgeLocal, badgeVariants }
+export { Badge, badgeVariants }

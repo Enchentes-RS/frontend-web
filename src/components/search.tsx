@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { useRef, useState } from 'react'
 
 import type { Local } from '@/api/locals/types'
 import { Button } from '@/components/ui/button'
@@ -19,9 +19,11 @@ const SearchField = ({
   onFilter,
   ...props
 }: SearchFieldProps) => {
-  const [search, setSearch] = React.useState('')
-  const [results, setResults] = React.useState<Local[]>(locals)
-  const ref = React.useRef<HTMLDivElement>(null)
+  const [search, setSearch] = useState('')
+  const [results, setResults] = useState<Local[]>(locals)
+  const [open, setOpen] = useState(false)
+
+  const ref = useRef<HTMLDivElement>(null)
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target
@@ -45,25 +47,32 @@ const SearchField = ({
     }
   }
 
+  const handleOpenDropdown = () => {
+    setOpen(true)
+  }
+
   const handleSelectLocal = (local: Local) => {
     onSelectLocal?.(local)
     setSearch('')
     setResults(locals)
+    setOpen(false)
   }
 
   useOnClickOutside(ref, () => {
     setSearch('')
     setResults(locals)
+    setOpen(false)
   })
 
   return (
     <>
       <div
         className={cn(
-          'flex h-14 w-full max-w-[695px] items-center gap-2 rounded-[28px] bg-white pl-6 pr-4 shadow',
-          search && 'rounded-b-none',
+          'flex h-14 w-full max-w-[695px] items-center gap-2 rounded-[28px] bg-white pl-6 pr-4 shadow transition-all duration-100',
+          (search || open) && 'rounded-b-none',
           className,
         )}
+        ref={ref}
         {...props}
       >
         <div className="relative flex h-full w-full items-center justify-between">
@@ -73,6 +82,7 @@ const SearchField = ({
             className="h-full w-full appearance-none bg-transparent pr-8 text-base font-normal placeholder-gray-400 focus:outline-none"
             value={search}
             onChange={handleSearch}
+            onFocus={handleOpenDropdown}
           />
           <Search className="pointer-events-none absolute right-0 size-6 text-gray-700" />
         </div>
@@ -87,12 +97,13 @@ const SearchField = ({
           </Button>
         )}
       </div>
-      {search && (
+      {(search || open) && (
         <div
           className={cn(
             'relative  max-w-[695px] rounded-b-[28px] border-t border-gray-400 bg-white py-2 pb-4 pr-1 text-base shadow',
+            'overflow-hidden transition-all data-[state=closed]:animate-search-up data-[state=open]:animate-search-down',
           )}
-          ref={ref}
+          data-state={open ? 'open' : 'closed'}
         >
           {results.length > 0 ? (
             <ul className="max-h-[80vh] overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-400">
