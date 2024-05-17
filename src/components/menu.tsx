@@ -1,6 +1,6 @@
 import type * as React from 'react'
 
-import { NavItem } from './navitem'
+import { NavItem } from './ui/nav-item'
 
 import menuLogo from '@/assets/menu-logo.svg'
 import { AddLocation, Info, Map } from '@/icons'
@@ -47,7 +47,7 @@ const Menu = ({ className, ...props }: React.ComponentProps<'nav'>) => {
               to={href}
               className="group flex flex-col items-center justify-center gap-1 text-gray-500 transition sm:gap-2"
             >
-              <div className="flex h-8 w-16 items-center justify-center rounded-full transition group-data-[active=true]:bg-green-950 group-data-[active=true]:text-white">
+              <div className="flex h-8 w-16 items-center justify-center rounded-full transition group-data-[active=true]:bg-green-950 group-data-[active=true]:text-green-50">
                 <Icon className="size-6" />
               </div>
               <span className="text-center text-sm font-medium leading-4 group-data-[active=true]:font-semibold group-data-[active=true]:text-green-950 sm:text-base">

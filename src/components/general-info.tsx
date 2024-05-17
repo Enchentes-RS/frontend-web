@@ -13,12 +13,12 @@ const GeneralInfo = () => {
           {
             summary: 'Como pedir resgate',
             content: (
-              <>
+              <div className="space-y-6">
                 <p>
                   Os principais contatos são da Brigada Militar, Corpo de
                   Bombeiros e Defesa Civil Estadual:
                 </p>
-                <ul className="mb-6 list-inside list-disc">
+                <ul className="list-inside list-disc">
                   <li>Brigada Militar: 190</li>
                   <li>Corpo de Bombeiros: 193</li>
                   <li>Defesa Civil estadual: 199</li>
@@ -33,13 +33,13 @@ const GeneralInfo = () => {
                   geográficas, se possivel), o número de pessoas e o tipo de
                   resgate (por água ou ar).
                 </p>
-              </>
+              </div>
             ),
           },
           {
             summary: 'Ajuda médica',
             content: (
-              <>
+              <div className="space-y-6">
                 <p>
                   Pessoas prejudicadas pela enchente que precisam de atendimento
                   de saúde agora têm a opção de consultas on-line. Em parceria
@@ -63,21 +63,23 @@ const GeneralInfo = () => {
                   </a>
                   , clicando em “faça sua consulta gratuita”.
                 </p>
-              </>
+              </div>
             ),
           },
           {
             summary: 'Telefones emergenciais',
             content: (
-              <ul className="list-inside list-disc">
-                <li>Brigada Militar: 190</li>
-                <li>Corpo de Bombeiros: 193</li>
-                <li>Defesa Civil estadual: 199</li>
-                <li>
-                  Telefones de emergência da Brigada Militar e dos Bombeiros nos
-                  municípios atingidos
-                </li>
-              </ul>
+              <div className="space-y-6">
+                <ul className="list-inside list-disc">
+                  <li>Brigada Militar: 190</li>
+                  <li>Corpo de Bombeiros: 193</li>
+                  <li>Defesa Civil estadual: 199</li>
+                  <li>
+                    Telefones de emergência da Brigada Militar e dos Bombeiros
+                    nos municípios atingidos
+                  </li>
+                </ul>
+              </div>
             ),
           },
         ]}

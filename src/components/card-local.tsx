@@ -15,7 +15,7 @@ const CardLocal = ({ local, className }: CardLocalProps) => {
   return (
     <Card
       className={cn(
-        'flex h-40 min-w-[278px] max-w-[278px] gap-1 p-4 pb-6 shadow-lg',
+        'flex h-40 min-w-[278px] max-w-[278px] gap-1 p-4 pb-6',
         className,
       )}
     >
