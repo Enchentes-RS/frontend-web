@@ -6,6 +6,8 @@ import ReactDOM from 'react-dom/client'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
 import { RouterProvider } from 'react-router-dom'
 
+import { Toaster } from './components/ui/toaster'
+
 import { queryClient } from '@/lib/react-query'
 import { router } from '@/router'
 
@@ -21,5 +23,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <RouterProvider router={router} />
       </QueryClientProvider>
     </HelmetProvider>
+    <Toaster />
   </React.StrictMode>,
 )

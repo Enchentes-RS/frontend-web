@@ -1,7 +1,6 @@
 import { Outlet } from 'react-router-dom'
 
 import { Menu } from '@/components/menu'
-import { Toaster } from '@/components/ui/toaster'
 
 export const AppLayout = () => {
   return (
@@ -12,7 +11,6 @@ export const AppLayout = () => {
           <Outlet />
         </section>
       </main>
-      <Toaster />
     </>
   )
 }
