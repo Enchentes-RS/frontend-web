@@ -106,7 +106,7 @@ const SearchField = ({
           data-state={open ? 'open' : 'closed'}
         >
           {results.length > 0 ? (
-            <ul className="max-h-[60vh] overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-400 md:max-h-[80vh]">
+            <ul className="max-h-[50dvh] overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-400">
               {results.map((local) => (
                 <li
                   key={local._id}
