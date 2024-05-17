@@ -13,6 +13,11 @@ module.exports = {
       padding: '2rem',
     },
     extend: {
+      boxShadow: {
+        DEFAULT:
+          '0px 1px 3px 0px rgb(0 0 0 / 0.3), 0px 4px 8px 3px rgb(0 0 0 / 0.15)',
+        md: '0px 4px 4px 0px rgb(0 0 0 / 0.3), 0px 8px 12px 6px rgb(0 0 0 / 0.15)',
+      },
       colors: {
         green: {
           50: '#ecfdf6',
@@ -45,7 +50,7 @@ module.exports = {
           100: '#fff4c2',
           200: '#ffe988',
           300: '#ffd94a',
-          400: '#36d1a5',
+          400: '#ffc520',
           500: '#f9a407',
           600: '#dd7b02',
           700: '#b75606',
@@ -61,17 +66,20 @@ module.exports = {
           400: '#26bfff',
           500: '#0097ff',
           600: '#006dff',
-          700: '#05775f',
+          700: '#0052ff',
           800: '#0045e6',
           900: '#0040b3',
           950: '#001d4d',
         },
       },
+      fontSize: {
+        '2xs': '.625rem',
+      },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
       },
       screens: {
-        'xs': '480px',
+        xs: '480px',
       },
       keyframes: {
         'accordion-down': {
@@ -82,12 +90,26 @@ module.exports = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        'search-down': {
+          from: { height: '0' },
+          to: { height: '80vh' },
+        },
+        'search-up': {
+          from: { height: '80vh' },
+          to: { height: '0' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'search-down': 'search-down 0.1s ease-out',
+        'search-up': 'search-up 0.2s ease-out',
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [
+    require('tailwindcss-animate'),
+    require('tailwind-scrollbar'),
+    require('@tailwindcss/forms')({ strategy: 'class' }),
+  ],
 }
