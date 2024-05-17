@@ -78,7 +78,7 @@ module.exports = {
         sans: ['Inter', 'sans-serif'],
       },
       screens: {
-        'xs': '480px',
+        xs: '480px',
       },
       keyframes: {
         'accordion-down': {
@@ -89,10 +89,22 @@ module.exports = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        'highlight-button-action': {
+          from: {
+            'box-shadow': '2px 2px 2px 0 theme("colors.green.700")',
+          },
+          to: {
+            'box-shadow': '0 0 0 0 theme("colors.green.700")',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'highlight-button-action': 'highlight-button-action 0.5s ease-out',
+      },
+      dropShadow: {
+        icon: '2px 2px 4px rgb(0 0 0 / 0.5)',
       },
     },
   },
