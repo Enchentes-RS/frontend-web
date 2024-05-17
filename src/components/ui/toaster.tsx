@@ -1,11 +1,4 @@
-import {
-  Toast,
-  ToastClose,
-  ToastDescription,
-  ToastProvider,
-  ToastTitle,
-  ToastViewport,
-} from '@/components/ui/toast'
+import { Toast, ToastProvider } from '@/components/ui/toast'
 import { useToast } from '@/hooks/use-toast'
 import { Error } from '@/icons/error'
 import { cn } from '@/lib/utils'
@@ -27,26 +20,28 @@ export const Toaster = () => {
                       <Error className="size-5" />
                     </div>
                   )}
-                  <ToastTitle className="text-lg font-bold">{title}</ToastTitle>
+                  <Toast.Title className="text-lg font-bold">
+                    {title}
+                  </Toast.Title>
                 </div>
               )}
               {description && (
-                <ToastDescription
+                <Toast.Description
                   className={cn(
                     'text-base font-normal',
                     props.variant !== 'destructive' && 'opacity-60',
                   )}
                 >
                   {description}
-                </ToastDescription>
+                </Toast.Description>
               )}
             </div>
             {action}
-            <ToastClose />
+            <Toast.Close />
           </Toast>
         )
       })}
-      <ToastViewport />
+      <Toast.Viewport />
     </ToastProvider>
   )
 }
