@@ -1,8 +1,7 @@
 import type * as React from 'react'
 
-import { NavItem } from './ui/nav-item'
-
 import menuLogo from '@/assets/menu-logo.svg'
+import { NavItem } from '@/components/ui/nav-item'
 import { AddLocation, Info, Map } from '@/icons'
 import { cn } from '@/lib/utils'
 

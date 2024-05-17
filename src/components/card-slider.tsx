@@ -1,17 +1,16 @@
 import { useKeenSlider } from 'keen-slider/react'
 
-import { CardLocal } from './card-local'
-
 import 'keen-slider/keen-slider.min.css'
 
 import type { Local } from '@/api/locals/types'
+import { Card } from '@/components/card'
 import { cn } from '@/lib/utils'
 
-interface CardLocalProps extends React.HTMLAttributes<HTMLDivElement> {
+interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   locals: Local[]
 }
 
-const CardSlider = ({ locals, className, ...props }: CardLocalProps) => {
+const CardSlider = ({ locals, className, ...props }: CardProps) => {
   const [sliderRef] = useKeenSlider({
     slides: {
       perView: 'auto',
@@ -26,7 +25,7 @@ const CardSlider = ({ locals, className, ...props }: CardLocalProps) => {
       {...props}
     >
       {locals.map((local) => (
-        <CardLocal
+        <Card
           key={local._id}
           local={local}
           className="keen-slider__slide first:ml-4 last:mr-4 sm:first:ml-24"

@@ -1,14 +1,13 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 
-import { Checkbox } from './ui/checkbox'
-import { RadioGroup } from './ui/radio-group'
-import { Spinner } from './ui/spinner'
-import { Textarea } from './ui/textarea'
-
 import { Button } from '@/components/ui/button'
+import { Checkbox } from '@/components/ui/checkbox'
 import { Form } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { RadioGroup } from '@/components/ui/radio-group'
+import { Spinner } from '@/components/ui/spinner'
+import { Textarea } from '@/components/ui/textarea'
 import { useToast } from '@/hooks/use-toast'
 import { registerFormSchema } from '@/schemas/register-form'
 import type { RegisterFormValues } from '@/types/register-form'

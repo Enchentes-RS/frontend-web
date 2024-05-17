@@ -1,4 +1,3 @@
-// Inspired by react-hot-toast library
 import * as React from 'react'
 
 import type { ToastActionElement, ToastProps } from '@/components/ui/toast'
@@ -130,7 +129,7 @@ const listeners: Array<(state: ToastState) => void> = []
 
 let memoryState: ToastState = { toasts: [] }
 
-function dispatch(action: Action) {
+const dispatch = (action: Action) => {
   memoryState = reducer(memoryState, action)
   listeners.forEach((listener) => {
     listener(memoryState)
@@ -139,7 +138,7 @@ function dispatch(action: Action) {
 
 type Toast = Omit<ToasterToast, 'id'>
 
-function toast({ ...props }: Toast) {
+export const toast = ({ ...props }: Toast) => {
   const id = genId()
 
   const update = (props: ToasterToast) =>
@@ -168,7 +167,7 @@ function toast({ ...props }: Toast) {
   }
 }
 
-function useToast() {
+export const useToast = () => {
   const [state, setState] = React.useState<ToastState>(memoryState)
 
   React.useEffect(() => {
@@ -187,5 +186,3 @@ function useToast() {
     dismiss: (toastId?: string) => dispatch({ type: 'DISMISS_TOAST', toastId }),
   }
 }
-
-export { useToast, toast }

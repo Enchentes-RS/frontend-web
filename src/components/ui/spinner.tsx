@@ -6,7 +6,7 @@ const Spinner = ({ className, ...props }: React.ComponentProps<'svg'>) => {
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
-      className={cn('animate-spin', 'size-12 text-green-600', className)}
+      className={cn('size-12 animate-spin text-green-600', className)}
       {...props}
     >
       <circle
