@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 
-import { DonationsInfo } from './components/donations-info'
-import { GeneralInfo } from './components/general-info'
+import { DonationsInfo } from '@/components/donations-info'
+import { GeneralInfo } from '@/components/general-info'
 
 export const InfoPage = () => {
   return (
