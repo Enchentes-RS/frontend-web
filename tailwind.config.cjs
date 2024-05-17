@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ['class'],
@@ -99,7 +100,9 @@ module.exports = {
   },
   plugins: [
     require('tailwindcss-animate'),
-    require('@tailwindcss/forms'),
     require('tailwind-scrollbar'),
+    require('@tailwindcss/forms')({
+      strategy: 'class', // only generate classes
+    }),
   ],
 }
