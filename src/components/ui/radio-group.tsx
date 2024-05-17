@@ -18,7 +18,7 @@ const Root = React.forwardRef<
 })
 Root.displayName = RadioGroupPrimitive.Root.displayName
 
-const RadioGroupItem = React.forwardRef<
+const Item = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item>
 >(({ className, ...props }, ref) => {
@@ -37,6 +37,6 @@ const RadioGroupItem = React.forwardRef<
     </RadioGroupPrimitive.Item>
   )
 })
-RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName
+Item.displayName = RadioGroupPrimitive.Item.displayName
 
-export const RadioGroup = Object.assign(Root, { Item: RadioGroupItem })
+export const RadioGroup = Object.assign(Root, { Item })
