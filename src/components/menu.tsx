@@ -27,7 +27,7 @@ const Menu = ({ className, ...props }: React.ComponentProps<'nav'>) => {
   return (
     <nav
       className={cn(
-        'border-gray-300 bg-green-50 px-3 py-0 sm:border-r sm:bg-white sm:py-6',
+        'fixed inset-x-0 bottom-0 h-[96px] border-t border-gray-300 bg-green-50 px-3 py-0 sm:static sm:h-auto sm:border-r sm:bg-white sm:py-6',
         className,
       )}
       {...props}
