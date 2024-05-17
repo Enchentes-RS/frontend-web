@@ -90,18 +90,26 @@ module.exports = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        'search-down': {
+          from: { height: '0' },
+          to: { height: '80vh' },
+        },
+        'search-up': {
+          from: { height: '80vh' },
+          to: { height: '0' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'search-down': 'search-down 0.1s ease-out',
+        'search-up': 'search-up 0.2s ease-out',
       },
     },
   },
   plugins: [
     require('tailwindcss-animate'),
     require('tailwind-scrollbar'),
-    require('@tailwindcss/forms')({
-      strategy: 'class', // only generate classes
-    }),
+    require('@tailwindcss/forms')({ strategy: 'class' }),
   ],
 }
