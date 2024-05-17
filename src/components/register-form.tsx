@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 
 import { Checkbox } from './ui/checkbox'
 import { RadioGroup } from './ui/radio-group'
+import { Spinner } from './ui/spinner'
 import { Textarea } from './ui/textarea'
 
 import { Button } from '@/components/ui/button'
@@ -37,6 +38,9 @@ export const RegisterForm = () => {
     })
     form.reset()
   }
+
+  const hasErrors = Object.keys(form.formState.errors).length > 0
+  const isSubmitting = form.formState.isSubmitting
 
   return (
     <Form {...form}>
@@ -158,7 +162,19 @@ export const RegisterForm = () => {
             </Form.Item>
           )}
         />
-        <Button type="submit">Enviar</Button>
+        <Button
+          disabled={hasErrors}
+          type="submit"
+          className="w-full bg-green-700 hover:bg-green-800 disabled:pointer-events-auto disabled:cursor-not-allowed disabled:bg-gray-400 disabled:text-gray-900 sm:w-60"
+        >
+          {hasErrors ? (
+            'Corrija os erros'
+          ) : isSubmitting ? (
+            <Spinner className="size-4 text-white" />
+          ) : (
+            'Enviar'
+          )}
+        </Button>
       </form>
     </Form>
   )
