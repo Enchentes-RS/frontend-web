@@ -118,7 +118,8 @@ module.exports = {
       files: ['vite.config.ts', 'tailwind.config.cjs', 'postcss.config.cjs'],
       rules: {
         'import/no-default-export': 'off',
-        'no-undef': 'off'
+        'no-undef': 'off',
+        '@typescript-eslint/no-var-requires': 'off'
       },
     },
   ],
