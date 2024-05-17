@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import type { Local } from '@/api/locals/types'
-import { Button } from '@/components/button'
+import { Button } from '@/components/ui/button'
 import { useOnClickOutside } from '@/hooks/use-click-outside'
 import { Filter, Search } from '@/icons'
 import { cn } from '@/lib/utils'
