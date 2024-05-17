@@ -1,3 +1,16 @@
 export { AddLocation } from './add-location'
 export { Info } from './info'
 export { Map } from './map'
+
+export { Shelter } from './shelter'
+export { ArrowBack } from './arrow-back'
+
+export { Pet } from './pet'
+export { TrashBags } from './trash-bags'
+export { Medicines } from './medicines'
+export { HygieneItems } from './hygiene-items'
+export { GeriatricDiaper } from './geriatric-diaper'
+export { BabyDiaper } from './baby-diaper'
+export { Bed } from './bed'
+export { Food } from './food'
+export { Volunteer } from './volunteer'
