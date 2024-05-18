@@ -1,112 +1,87 @@
-import * as React from 'react'
-import { Drawer as DrawerPrimitive } from 'vaul'
+import { Drawer as DrawerUi } from '@/components/ui/drawer'
+import {
+  ArrowBack,
+  BabyDiaper,
+  Bed,
+  Food,
+  GeriatricDiaper,
+  HygieneItems,
+  Medicine,
+  People,
+  Pet,
+  Shelter,
+  TrashBags,
+  Volunteers,
+} from '@/icons'
 
-import { cn } from '@/lib/utils'
+interface ItemsProps {
+  title: string
+  description: string
+  icon: string
+  needs: {
+    type: string
+    text: string
+  }[]
+}
 
-const Root = ({
-  shouldScaleBackground = true,
-  ...props
-}: React.ComponentProps<typeof DrawerPrimitive.Root>) => (
-  <DrawerPrimitive.Root
-    shouldScaleBackground={shouldScaleBackground}
-    {...props}
-  />
-)
-Root.displayName = 'Drawer'
+interface DrawerProps {
+  children: React.ReactNode
+  item: ItemsProps
+}
 
-const Trigger = DrawerPrimitive.Trigger
+export const Drawer = ({ children, item }: DrawerProps) => {
+  const iconMap = {
+    pet: <Pet className="size-6" />,
+    trashBags: <TrashBags className="size-6" />,
+    medicines: <Medicine className="size-6" />,
+    hygieneItems: <HygieneItems className="size-6" />,
+    geriatricDiaper: <GeriatricDiaper className="size-6" />,
+    babyDiaper: <BabyDiaper className="size-6" />,
+    bed: <Bed className="size-6" />,
+    food: <Food className="size-6" />,
+    people: <People className="size-6" />,
+    volunteers: <Volunteers className="size-8" />,
+    shelter: <Shelter className="size-8" />,
+  }
 
-const Portal = DrawerPrimitive.Portal
+  return (
+    <DrawerUi direction="right">
+      <DrawerUi.Trigger asChild>{children}</DrawerUi.Trigger>
+      <DrawerUi.Content className="px-8 py-4">
+        <DrawerUi.Header className="flex items-center">
+          <DrawerUi.Close>
+            <ArrowBack className="size-6" />
+          </DrawerUi.Close>
+          <DrawerUi.Title className="text-2xl font-normal text-gray-900">
+            Detalhes do local
+          </DrawerUi.Title>
+        </DrawerUi.Header>
+        <DrawerUi.Description className="my-8">
+          <div className="flex gap-4">
+            <div className="flex size-12 items-center justify-center rounded-full bg-volunteer text-white">
+              {iconMap[item.icon as keyof typeof iconMap]}
+            </div>
+            <div>
+              <div className="text-2xl font-semibold text-gray-900">
+                {item.title}
+              </div>
+              <p className="text-gray-900">{item.description}</p>
+            </div>
+          </div>
+        </DrawerUi.Description>
 
-const Close = DrawerPrimitive.Close
-
-const Overlay = React.forwardRef<
-  React.ElementRef<typeof DrawerPrimitive.Overlay>,
-  React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Overlay>
->(({ className, ...props }, ref) => (
-  <DrawerPrimitive.Overlay
-    ref={ref}
-    className={cn('fixed inset-0 z-50 bg-black/10', className)}
-    {...props}
-  />
-))
-Overlay.displayName = DrawerPrimitive.Overlay.displayName
-
-const Content = React.forwardRef<
-  React.ElementRef<typeof DrawerPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Content>
->(({ className, children, ...props }, ref) => (
-  <Portal>
-    <Overlay />
-    <DrawerPrimitive.Content
-      ref={ref}
-      className={cn(
-        'fixed inset-y-0 right-0 z-50 flex w-full flex-col border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-950 sm:w-[482px]',
-        className,
-      )}
-      {...props}
-    >
-      {children}
-    </DrawerPrimitive.Content>
-  </Portal>
-))
-Content.displayName = 'DrawerContent'
-
-const Header = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
-  <div
-    className={cn(
-      'align-items-center mt-6 flex justify-start gap-4 p-3 pl-4 sm:p-1 sm:pl-3',
-      className,
-    )}
-    {...props}
-  />
-)
-Header.displayName = 'DrawerHeader'
-
-const Footer = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn('flex flex-col gap-2 p-4', className)} {...props} />
-)
-Footer.displayName = 'DrawerFooter'
-
-const Title = React.forwardRef<
-  React.ElementRef<typeof DrawerPrimitive.Title>,
-  React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Title>
->(({ className, ...props }, ref) => (
-  <DrawerPrimitive.Title
-    ref={ref}
-    className={cn(
-      'text-lg font-semibold leading-none tracking-tight',
-      className,
-    )}
-    {...props}
-  />
-))
-Title.displayName = DrawerPrimitive.Title.displayName
-
-const Description = React.forwardRef<
-  React.ElementRef<typeof DrawerPrimitive.Description>,
-  React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Description>
->(({ className, ...props }, ref) => (
-  <DrawerPrimitive.Description
-    ref={ref}
-    className={cn('text-sm text-gray-500 dark:text-gray-400', className)}
-    {...props}
-  />
-))
-Description.displayName = DrawerPrimitive.Description.displayName
-
-export const Drawer = Object.assign(Root, {
-  Trigger,
-  Content,
-  Header,
-  Footer,
-  Title,
-  Description,
-  Close,
-})
+        <ul className="flex flex-col gap-6">
+          <li className="font-semibold text-gray-900">Estão precisando de:</li>
+          {item.needs.map((need, index) => (
+            <li key={index} className="flex items-center gap-2">
+              <div className="text-green-900">
+                {iconMap[need.type as keyof typeof iconMap]}
+              </div>
+              <span>{need.text}</span>
+            </li>
+          ))}
+        </ul>
+      </DrawerUi.Content>
+    </DrawerUi>
+  )
+}
