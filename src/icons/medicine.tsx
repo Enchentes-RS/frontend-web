@@ -1,4 +1,4 @@
-export const Medicines = (props: React.ComponentProps<'svg'>) => {
+export const Medicine = (props: React.ComponentProps<'svg'>) => {
   return (
     <svg
       viewBox="0 0 24 24"
