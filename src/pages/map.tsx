@@ -16,8 +16,54 @@ import {
 import { useLocalsQuery } from '@/api/locals'
 import type { Local } from '@/api/locals/types'
 import { CardSlider } from '@/components/card-slider'
+import { Drawer } from '@/components/drawer'
 import { SearchField } from '@/components/search'
+import { Button } from '@/components/ui/button'
 import { Spinner } from '@/components/ui/spinner'
+
+const mockedItem = {
+  title: 'Estádio Olímpico Monumental',
+  description: 'Bairro Medianeira; entrada pela Azenha',
+  icon: 'volunteers',
+  needs: [
+    {
+      type: 'people',
+      text: 'Voluntários',
+    },
+    {
+      type: 'food',
+      text: 'Alimentos prontos e não perecíveis',
+    },
+    {
+      type: 'food',
+      text: 'Talheres descartáveis',
+    },
+    {
+      type: 'bed',
+      text: 'Colchões e cobertores',
+    },
+    {
+      type: 'babyDiaper',
+      text: 'Fralda de bebês',
+    },
+    {
+      type: 'geriatricDiaper',
+      text: 'Fralda de geriátrica',
+    },
+    {
+      type: 'hygieneItems',
+      text: 'Itens de higiene',
+    },
+    {
+      type: 'medicines',
+      text: 'Medicamentos',
+    },
+    {
+      type: 'trashBags',
+      text: 'Sacos de lixo',
+    },
+  ],
+}
 
 export const MapPage = () => {
   const [selectedLocal, setSelectedLocal] = useState<Local | null>(null)
@@ -126,6 +172,14 @@ export const MapPage = () => {
           )}
         </div>
       )}
+
+      <div className="absolute right-0 top-0 z-20 p-4">
+        <Drawer item={mockedItem}>
+          <Button variant="outline" size="sm">
+            Abrir Drawer
+          </Button>
+        </Drawer>
+      </div>
     </>
   )
 }
