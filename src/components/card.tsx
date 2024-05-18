@@ -1,10 +1,9 @@
 import type * as React from 'react'
 
-import { Badge } from './badge'
-import { Card as CardUi } from './ui/card'
-
 import type { Local } from '@/api/locals/types'
-import { Volunteer } from '@/icons/volunteer'
+import { Badge } from '@/components/ui/badge'
+import { Card as CardUi } from '@/components/ui/card'
+import { Volunteers } from '@/icons'
 import { cn } from '@/lib/utils'
 
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -20,8 +19,8 @@ const Card = ({ local, className }: CardProps) => {
       )}
     >
       <div className="flex size-10 items-center justify-center">
-        <div className="flex size-8 items-center justify-center rounded-full bg-[#fe375b] text-white">
-          <Volunteer className="size-4" />
+        <div className="flex size-8 items-center justify-center rounded-full bg-volunteer text-white">
+          <Volunteers className="size-4" />
         </div>
       </div>
       <div className="flex flex-col justify-between">

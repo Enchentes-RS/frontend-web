@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ['class'],
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
@@ -19,6 +18,8 @@ module.exports = {
         md: '0px 4px 4px 0px rgb(0 0 0 / 0.3), 0px 8px 12px 6px rgb(0 0 0 / 0.15)',
       },
       colors: {
+        volunteer: '#fe375b',
+        shelter: '#00a2fa',
         green: {
           50: '#ecfdf6',
           100: '#d1fae8',

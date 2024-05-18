@@ -1,4 +1,4 @@
-export const Hotel = (props: React.ComponentProps<'svg'>) => {
+export const Shelter = (props: React.ComponentProps<'svg'>) => {
   return (
     <svg
       viewBox="0 0 24 24"
