@@ -41,7 +41,7 @@ const Content = React.forwardRef<
     <DrawerPrimitive.Content
       ref={ref}
       className={cn(
-        'fixed inset-y-0 right-0 z-50 flex w-full max-w-[482px] flex-col border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-950',
+        'fixed inset-y-0 right-0 z-50 flex w-full max-w-[482px] flex-col border border-gray-200 bg-white',
         className,
       )}
       {...props}
@@ -95,7 +95,7 @@ const Description = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Description
     ref={ref}
-    className={cn('text-sm text-gray-500 dark:text-gray-400', className)}
+    className={cn('text-sm text-gray-500', className)}
     {...props}
   />
 ))
