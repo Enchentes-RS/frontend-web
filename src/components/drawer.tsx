@@ -29,7 +29,7 @@ interface DrawerProps {
   item: ItemsProps
 }
 
-export const Drawer = ({ children, item }: DrawerProps) => {
+export const Drawer = ({ children, item, ...props }: DrawerProps) => {
   const iconMap = {
     pet: <Pet className="size-6" />,
     trashBags: <TrashBags className="size-6" />,
@@ -45,8 +45,8 @@ export const Drawer = ({ children, item }: DrawerProps) => {
   }
 
   return (
-    <DrawerUi direction="right">
-      <DrawerUi.Trigger asChild>{children}</DrawerUi.Trigger>
+    <DrawerUi direction="right" {...props}>
+      <DrawerUi.Trigger>{children}</DrawerUi.Trigger>
       <DrawerUi.Content className="px-8 py-4">
         <DrawerUi.Header className="flex items-center">
           <DrawerUi.Close>

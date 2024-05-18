@@ -1,10 +1,9 @@
 import type * as React from 'react'
 
-import { Badge } from './badge'
-import { Card as CardUi } from './ui/card'
-
 import type { Local } from '@/api/locals/types'
-import { Volunteers } from '@/icons/volunteers'
+import { Badge } from '@/components/ui/badge'
+import { Card as CardUi } from '@/components/ui/card'
+import { Volunteers } from '@/icons'
 import { cn } from '@/lib/utils'
 
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
