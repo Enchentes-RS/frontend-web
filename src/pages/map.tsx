@@ -2,7 +2,6 @@ import 'leaflet/dist/leaflet.css'
 
 import type { Map as LeafletMap } from 'leaflet'
 import L, { Icon } from 'leaflet'
-import { Info } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import {
@@ -135,18 +134,17 @@ export const MapPage = () => {
         position={coordinates}
       >
         <Popup>
-          <Card
-            local={local}
-            className="-ml-2 h-32 w-full min-w-56 max-w-56 border-none p-0 shadow-none"
-          />
-          <Button
-            variant={'ghost'}
-            size={'icon'}
-            className="absolute bottom-2 right-2 z-50 size-4 rounded-full text-zinc-400"
-            onClick={() => onOpenDrawer?.(local)}
-          >
-            <Info className="size-4" />
-          </Button>
+          <div className="-ml-2 flex flex-col items-end gap-3">
+            <Card local={local} isPopup />
+            <Button
+              variant={'outline'}
+              size={'pill'}
+              className="rounded-full py-1 text-xs text-zinc-400"
+              onClick={() => onOpenDrawer?.(local)}
+            >
+              Ver detalhes
+            </Button>
+          </div>
         </Popup>
       </Marker>
     )
