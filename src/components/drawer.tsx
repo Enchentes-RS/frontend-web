@@ -71,7 +71,7 @@ export const Drawer = ({
         </DrawerUi.Header>
         <DrawerUi.Description className="my-8">
           <div className="flex gap-4">
-            <div className="flex size-12 items-center justify-center rounded-full bg-volunteer text-white">
+            <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-volunteer text-white">
               {iconMap[item.icon as keyof typeof iconMap]}
             </div>
             <div>
