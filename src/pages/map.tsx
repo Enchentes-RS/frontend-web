@@ -135,7 +135,10 @@ export const MapPage = () => {
         position={coordinates}
       >
         <Popup>
-          <Card local={local} className="w-full border-none p-0 shadow-none" />
+          <Card
+            local={local}
+            className="-ml-2 h-32 w-full min-w-56 max-w-56 border-none p-0 shadow-none"
+          />
           <Button
             variant={'ghost'}
             size={'icon'}
