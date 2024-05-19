@@ -65,11 +65,25 @@ const mockedItem = {
   ],
 }
 
+const isMobileDevice = () => {
+  return window.innerWidth <= 768
+}
+
 export const MapPage = () => {
   const [selectedLocal, setSelectedLocal] = useState<Local | null>(null)
+  const [isMobile, setIsMobile] = useState(isMobileDevice())
   const mapRef = useRef<LeafletMap | null>(null)
 
   const { data: locals, isLoading } = useLocalsQuery()
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(isMobileDevice())
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   const handleSelectLocal = (local: Local) => {
     setSelectedLocal(local)
@@ -115,7 +129,7 @@ export const MapPage = () => {
           new Icon({
             className: 'shadow-md rounded-full',
             iconUrl: '/assets/donator.svg',
-            iconSize: [28, 28],
+            iconSize: isMobile ? [26, 26] : [28, 28],
             iconAnchor: [13, 13],
           })
         }
@@ -139,8 +153,8 @@ export const MapPage = () => {
         <div className="relative h-full overflow-hidden">
           <MapContainer
             className="relative z-10"
-            center={[-30.0546, -51.18]}
-            zoom={13}
+            center={isMobile ? [-30.06, -51.2] : [-30.0546, -51.18]}
+            zoom={isMobile ? 12 : 13}
             zoomControl={false}
             ref={mapRef}
           >
