@@ -69,20 +69,17 @@ export const Drawer = ({
             Detalhes do local
           </DrawerUi.Title>
         </DrawerUi.Header>
-        <DrawerUi.Description className="my-8">
-          <div className="flex gap-4">
-            <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-volunteer text-white">
-              {iconMap[item.icon as keyof typeof iconMap]}
-            </div>
-            <div>
-              <div className="text-2xl font-semibold text-gray-900">
-                {item.title}
-              </div>
-              <p className="text-gray-900">{item.description}</p>
-            </div>
+        <div className="my-8 flex gap-4">
+          <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-volunteer text-white">
+            {iconMap[item.icon as keyof typeof iconMap]}
           </div>
-        </DrawerUi.Description>
-
+          <div>
+            <div className="text-2xl font-semibold text-gray-900">
+              {item.title}
+            </div>
+            <p className="text-gray-900">{item.description}</p>
+          </div>
+        </div>
         <ul className="flex flex-col gap-6">
           <li className="font-semibold text-gray-900">Estão precisando de:</li>
           {item.needs.map((need, index) => (
