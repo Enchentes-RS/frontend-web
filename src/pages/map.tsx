@@ -20,6 +20,7 @@ import { Drawer } from '@/components/drawer'
 import { SearchField } from '@/components/search'
 import { Button } from '@/components/ui/button'
 import { Spinner } from '@/components/ui/spinner'
+import { useIsMobile } from '@/hooks/use-is-mobile.tsx'
 
 const mockedItem = {
   title: 'Estádio Olímpico Monumental',
@@ -65,25 +66,12 @@ const mockedItem = {
   ],
 }
 
-const isMobileDevice = () => {
-  return window.innerWidth <= 768
-}
-
 export const MapPage = () => {
   const [selectedLocal, setSelectedLocal] = useState<Local | null>(null)
-  const [isMobile, setIsMobile] = useState(isMobileDevice())
   const mapRef = useRef<LeafletMap | null>(null)
+  const isMobile = useIsMobile()
 
   const { data: locals, isLoading } = useLocalsQuery()
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(isMobileDevice())
-    }
-
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
 
   const handleSelectLocal = (local: Local) => {
     setSelectedLocal(local)
