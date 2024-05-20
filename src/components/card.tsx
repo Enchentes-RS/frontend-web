@@ -8,13 +8,17 @@ import { cn } from '@/lib/utils'
 
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   local: Local
+  isPopup?: boolean
 }
 
-const Card = ({ local, className }: CardProps) => {
+const Card = ({ local, className, isPopup }: CardProps) => {
   return (
     <CardUi
       className={cn(
-        'flex h-40 min-w-[278px] max-w-[278px] gap-1 p-4 pb-6',
+        'flex gap-1',
+        isPopup
+          ? 'h-auto w-56 border-none p-0 shadow-none'
+          : 'h-40 min-w-[278px] max-w-[278px] p-4 pb-6',
         className,
       )}
     >
@@ -32,16 +36,18 @@ const Card = ({ local, className }: CardProps) => {
             {local.address}
           </CardUi.Description>
         </CardUi.Header>
-        <CardUi.Footer className="flex w-full gap-4 p-0">
-          <div className="space-y-2">
-            <h3 className="text-xs font-medium text-zinc-600">Doações</h3>
-            <Badge variant={local.donations} />
-          </div>
-          <div className="space-y-2">
-            <h3 className="text-xs font-medium text-zinc-600">Voluntários</h3>
-            <Badge variant={local.volunteers} />
-          </div>
-        </CardUi.Footer>
+        {!isPopup && (
+          <CardUi.Footer className="flex w-full gap-4 p-0">
+            <div className="space-y-2">
+              <h3 className="text-xs font-medium text-zinc-600">Doações</h3>
+              <Badge variant={local.donations} />
+            </div>
+            <div className="space-y-2">
+              <h3 className="text-xs font-medium text-zinc-600">Voluntários</h3>
+              <Badge variant={local.volunteers} />
+            </div>
+          </CardUi.Footer>
+        )}
       </div>
     </CardUi>
   )

@@ -15,6 +15,7 @@ import {
 
 import { useLocalsQuery } from '@/api/locals'
 import type { Local } from '@/api/locals/types'
+import { Card } from '@/components/card'
 import { CardSlider } from '@/components/card-slider'
 import { Drawer } from '@/components/drawer'
 import { SearchField } from '@/components/search'
@@ -67,6 +68,10 @@ const mockedItem = {
 
 export const MapPage = () => {
   const [selectedLocal, setSelectedLocal] = useState<Local | null>(null)
+  const [drawerSelectedLocal, setDrawerSelectedLocal] = useState<Local | null>(
+    null,
+  )
+  const [openDrawer, setOpenDrawer] = useState<boolean>(false)
   const mapRef = useRef<LeafletMap | null>(null)
 
   const { data: locals, isLoading } = useLocalsQuery()
@@ -87,12 +92,19 @@ export const MapPage = () => {
     }
   }
 
+  const handleOpenDrawer = (local: Local) => {
+    setDrawerSelectedLocal(local)
+    setOpenDrawer(true)
+  }
+
   const CustomMarker = ({
     coordinates,
     local,
+    onOpenDrawer,
   }: {
     coordinates: [number, number]
     local: Local
+    onOpenDrawer?: (local: Local) => void
   }) => {
     const map = useMap()
 
@@ -122,7 +134,17 @@ export const MapPage = () => {
         position={coordinates}
       >
         <Popup>
-          <b>{local.name}</b>
+          <div className="-ml-2 flex flex-col items-end gap-3">
+            <Card local={local} isPopup />
+            <Button
+              variant={'outline'}
+              size={'pill'}
+              className="rounded-full py-1 text-xs text-zinc-400"
+              onClick={() => onOpenDrawer?.(local)}
+            >
+              Ver detalhes
+            </Button>
+          </div>
         </Popup>
       </Marker>
     )
@@ -154,6 +176,7 @@ export const MapPage = () => {
                 key={index}
                 local={local}
                 coordinates={[Number(local.latitude), Number(local.longitude)]}
+                onOpenDrawer={handleOpenDrawer}
               />
             ))}
           </MapContainer>
@@ -174,11 +197,15 @@ export const MapPage = () => {
       )}
 
       <div className="absolute right-0 top-0 z-20 p-4">
-        <Drawer item={mockedItem}>
-          <Button variant="outline" size="sm">
-            Abrir Drawer
-          </Button>
-        </Drawer>
+        <Drawer
+          item={{
+            ...mockedItem,
+            title: drawerSelectedLocal?.name || '',
+            description: drawerSelectedLocal?.address || '',
+          }}
+          open={openDrawer}
+          onOpenDrawer={setOpenDrawer}
+        />
       </div>
     </>
   )

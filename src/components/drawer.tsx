@@ -25,11 +25,19 @@ interface ItemsProps {
 }
 
 interface DrawerProps {
-  children: React.ReactNode
+  children?: React.ReactNode
   item: ItemsProps
+  open?: boolean
+  onOpenDrawer?: (open: boolean) => void
 }
 
-export const Drawer = ({ children, item, ...props }: DrawerProps) => {
+export const Drawer = ({
+  children,
+  item,
+  open,
+  onOpenDrawer,
+  ...props
+}: DrawerProps) => {
   const iconMap = {
     pet: <Pet className="size-6" />,
     trashBags: <TrashBags className="size-6" />,
@@ -45,7 +53,12 @@ export const Drawer = ({ children, item, ...props }: DrawerProps) => {
   }
 
   return (
-    <DrawerUi direction="right" {...props}>
+    <DrawerUi
+      direction="right"
+      open={open}
+      onOpenChange={onOpenDrawer}
+      {...props}
+    >
       <DrawerUi.Trigger>{children}</DrawerUi.Trigger>
       <DrawerUi.Content className="px-8 py-4">
         <DrawerUi.Header className="flex items-center">
@@ -58,7 +71,7 @@ export const Drawer = ({ children, item, ...props }: DrawerProps) => {
         </DrawerUi.Header>
         <DrawerUi.Description className="my-8">
           <div className="flex gap-4">
-            <div className="flex size-12 items-center justify-center rounded-full bg-volunteer text-white">
+            <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-volunteer text-white">
               {iconMap[item.icon as keyof typeof iconMap]}
             </div>
             <div>
