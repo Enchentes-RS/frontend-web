@@ -1,10 +1,26 @@
 import { Facebook, Instagram, Linkedin, Twitter } from '@/icons'
 
 const footerLinks = [
-  { href: 'https://instagram.com', icon: <Instagram />, title: 'Instagram' },
-  { href: 'https://linkedin.com', icon: <Linkedin />, title: 'LinkedIn' },
-  { href: 'https://twitter.com', icon: <Twitter />, title: 'Twitter' },
-  { href: 'https://facebook.com', icon: <Facebook />, title: 'Facebook' },
+  {
+    href: 'https://www.instagram.com/mapasolidariors/',
+    icon: <Instagram />,
+    title: 'Instagram',
+  },
+  {
+    href: 'https://www.linkedin.com/company/mapa-solid%C3%A1rio-rs/',
+    icon: <Linkedin />,
+    title: 'LinkedIn',
+  },
+  {
+    href: 'https://x.com/mapasolidariors',
+    icon: <Twitter />,
+    title: 'Twitter',
+  },
+  {
+    href: 'https://www.facebook.com/profile.php?id=61559453038970',
+    icon: <Facebook />,
+    title: 'Facebook',
+  },
 ] as const
 
 const FooterInfo = () => {
