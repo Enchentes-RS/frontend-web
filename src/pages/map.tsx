@@ -21,6 +21,7 @@ import { Drawer } from '@/components/drawer'
 import { SearchField } from '@/components/search'
 import { Button } from '@/components/ui/button'
 import { Spinner } from '@/components/ui/spinner'
+import { useIsMobile } from '@/hooks/use-is-mobile.tsx'
 
 const mockedItem = {
   title: 'Estádio Olímpico Monumental',
@@ -73,6 +74,7 @@ export const MapPage = () => {
   )
   const [openDrawer, setOpenDrawer] = useState<boolean>(false)
   const mapRef = useRef<LeafletMap | null>(null)
+  const isMobile = useIsMobile()
 
   const { data: locals, isLoading } = useLocalsQuery()
 
@@ -127,7 +129,7 @@ export const MapPage = () => {
           new Icon({
             className: 'shadow-md rounded-full',
             iconUrl: '/assets/donator.svg',
-            iconSize: [28, 28],
+            iconSize: isMobile ? [26, 26] : [28, 28],
             iconAnchor: [13, 13],
           })
         }
@@ -161,8 +163,8 @@ export const MapPage = () => {
         <div className="relative h-full overflow-hidden">
           <MapContainer
             className="relative z-10"
-            center={[-30.0546, -51.18]}
-            zoom={13}
+            center={isMobile ? [-30.06, -51.2] : [-30.0546, -51.18]}
+            zoom={isMobile ? 12 : 13}
             zoomControl={false}
             ref={mapRef}
           >
